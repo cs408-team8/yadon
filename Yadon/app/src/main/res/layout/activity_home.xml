@@ -13,9 +13,13 @@
     tools:context=".LoginActivity"
     android:weightSum="1">
 
+    <ListView
+        android:id="@+id/listview_group"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         app:srcCompat="@drawable/plus_button"
         android:id="@+id/addGroup"
         android:scaleType="centerInside"
@@ -25,23 +29,5 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
-        android:id="@+id/HometextView1"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/HometextView2"
-        android:layout_alignStart="@+id/HometextView2" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/HometextView2"
-        android:layout_below="@+id/HometextView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="126dp" />
 
 </RelativeLayout>

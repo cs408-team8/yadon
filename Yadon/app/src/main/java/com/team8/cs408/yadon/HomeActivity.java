@@ -4,20 +4,27 @@ import java.util.ArrayList;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 
+import android.widget.AdapterView;
 import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.ListView;
 
 
 public class HomeActivity extends AppCompatActivity {
+    private ListView listView;
+    GroupListViewAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ImageButton addGroupButton = (ImageButton) findViewById(R.id.addGroup);
+        adapter = new GroupListViewAdapter();
+        listView = (ListView) findViewById(R.id.listview_group);
+        listView.setAdapter(adapter);
         addGroupButton.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -25,40 +32,26 @@ public class HomeActivity extends AppCompatActivity {
                 startActivityForResult(intent, 0);
             }
         });
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                GroupInfoListViewItem item = (GroupInfoListViewItem) parent.getItemAtPosition(position);
+
+            }
+        });
     }
 
+    //Group member is selected. Should handle the information.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            ArrayList<String> checkedContacts = data.getStringArrayListExtra("checkedContacts");
-            for (int i = 0; i < checkedContacts.size(); i++) {
-                Log.d("checkedContacts : ", checkedContacts.get(i));
-            }
-            TextView text1 = (TextView) findViewById(R.id.HometextView1);
-            TextView text2 = (TextView) findViewById(R.id.HometextView2);
-            String str1 = "체크된 그룹 맴버 수 : " + Integer.toString(checkedContacts.size());
-            String str2 = "체크된 그룹 정보 :\n";
-            for (int i = 0; i < checkedContacts.size(); i++) {
-                str2 += checkedContacts.get(i) + "\n";
-            }
-            text1.setText(str1);
-            text2.setText(str2);
-
+            ArrayList<String> checkedNames = data.getStringArrayListExtra("checkedNames");
+            ArrayList<String> checkedPhones = data.getStringArrayListExtra("checkedPhones");
+            String groupName = data.getStringExtra("groupName");
+            adapter.addItem(ContextCompat.getDrawable(this, R.drawable.graph_sample), groupName, checkedNames, checkedPhones);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-    /*
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                                           int[] grantResults) {
-        if (requestCode == PERMISSIONS_REQUEST_READ_CONTACTS) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission is granted
-            } else {
-                Toast.makeText(this, "Until you grant the permission, we canot display the names", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-*/
+
 
 }

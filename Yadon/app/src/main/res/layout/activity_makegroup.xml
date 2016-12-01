@@ -4,17 +4,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <TextView
+        android:text="친구목록"
+        android:textSize="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/contactbar" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contactbar"
+        android:inputType="textPersonName"
+        android:layout_centerHorizontal="true"
+        android:hint="저녁팟"
+        android:ems="10"
+        android:id="@+id/groupname" />
+
     <ImageButton
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         app:srcCompat="@android:drawable/sym_contact_card"
         android:id="@+id/confirm"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/groupname"
+        android:layout_toRightOf="@+id/groupname"
+        android:layout_toEndOf="@+id/groupname" />
 
     <ListView android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/confirm"
         android:id="@+id/list"/>
+
+    <TextView
+        android:text="그룹이름"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text4"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp"
+        android:layout_alignBaseline="@+id/groupname"
+        android:layout_alignBottom="@+id/groupname"
+        android:layout_toLeftOf="@+id/groupname"
+        android:layout_toStartOf="@+id/groupname" />
 
 </RelativeLayout>
