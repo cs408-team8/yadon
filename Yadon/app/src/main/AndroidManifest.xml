@@ -23,6 +23,7 @@
             android:value="@string/kakao_app_key"/>
         <activity android:name=".HomeActivity"></activity>
         <activity android:name=".MakeGroupActivity"></activity>
+        <activity android:name=".GroupInfoActivity"></activity>
     </application>
 
 </manifest>

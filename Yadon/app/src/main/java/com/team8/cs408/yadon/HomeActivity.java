@@ -15,6 +15,8 @@ import android.widget.ListView;
 
 public class HomeActivity extends AppCompatActivity {
     private ListView listView;
+    public final int MakeGroupActivityCode = 0;
+    public final int GroupInfoActivityCode = 1;
     GroupListViewAdapter adapter;
 
     @Override
@@ -29,14 +31,19 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, MakeGroupActivity.class);
-                startActivityForResult(intent, 0);
+                startActivityForResult(intent, MakeGroupActivityCode);
             }
         });
+
+        //If User touches a group, goes to GroupInfoAcitivy
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 GroupInfoListViewItem item = (GroupInfoListViewItem) parent.getItemAtPosition(position);
-
+                Intent intent = new Intent(HomeActivity.this, GroupInfoActivity.class);
+                intent.putStringArrayListExtra("memberNames", item.getMemberNames());
+                intent.putStringArrayListExtra("memberPhones", item.getMemberPhones());
+                startActivityForResult(intent, GroupInfoActivityCode);
             }
         });
     }
@@ -45,10 +52,14 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            ArrayList<String> checkedNames = data.getStringArrayListExtra("checkedNames");
-            ArrayList<String> checkedPhones = data.getStringArrayListExtra("checkedPhones");
-            String groupName = data.getStringExtra("groupName");
-            adapter.addItem(ContextCompat.getDrawable(this, R.drawable.graph_sample), groupName, checkedNames, checkedPhones);
+            if (requestCode == MakeGroupActivityCode) {
+                ArrayList<String> checkedNames = data.getStringArrayListExtra("checkedNames");
+                ArrayList<String> checkedPhones = data.getStringArrayListExtra("checkedPhones");
+                String groupName = data.getStringExtra("groupName");
+                adapter.addItem(ContextCompat.getDrawable(this, R.drawable.graph_sample), groupName, checkedNames, checkedPhones);
+            } else if (requestCode == GroupInfoActivityCode) {
+
+            }
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

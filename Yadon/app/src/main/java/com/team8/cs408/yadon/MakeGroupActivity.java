@@ -125,7 +125,7 @@ public class MakeGroupActivity extends AppCompatActivity {
         });
     }
 
-// get contacts information.
+    // get contacts information.
     private Cursor getURI() {
 
         Uri uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;

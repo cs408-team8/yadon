@@ -10,10 +10,11 @@ public class GroupInfoListViewItem {
     private ArrayList<String> mMemberNames;
     private ArrayList<String> mMemberPhones;
 
-    public GroupInfoListViewItem(){
+    public GroupInfoListViewItem() {
         mMemberNames = new ArrayList<String>();
         mMemberPhones = new ArrayList<String>();
     }
+
     public void setGraph(Drawable pieGraph) {
         mPieGraph = pieGraph;
     }
@@ -22,11 +23,11 @@ public class GroupInfoListViewItem {
         mGroupName = groupName;
     }
 
-    public void setMemberNames(ArrayList<String> memberNames){
+    public void setMemberNames(ArrayList<String> memberNames) {
         mMemberNames = memberNames;
     }
 
-    public void setMemberPhones(ArrayList<String> memberPhones){
+    public void setMemberPhones(ArrayList<String> memberPhones) {
         mMemberPhones = memberPhones;
     }
 

@@ -13,9 +13,10 @@ import java.util.ArrayList;
 
 
 public class GroupListViewAdapter extends BaseAdapter {
-    private ArrayList<GroupInfoListViewItem> groupInfoListViewItem_List = new ArrayList<GroupInfoListViewItem>();
+    private ArrayList<GroupInfoListViewItem> groupInfoListViewItem_List;
 
     public GroupListViewAdapter() {
+        groupInfoListViewItem_List = new ArrayList<GroupInfoListViewItem>();
     }
 
     @Override
