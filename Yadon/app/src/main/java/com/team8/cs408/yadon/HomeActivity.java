@@ -6,11 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -23,6 +27,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        getSupportActionBar().setTitle("그룹");
         ImageButton addGroupButton = (ImageButton) findViewById(R.id.addGroup);
         adapter = new GroupListViewAdapter();
         listView = (ListView) findViewById(R.id.listview_group);
@@ -41,6 +46,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 GroupInfoListViewItem item = (GroupInfoListViewItem) parent.getItemAtPosition(position);
                 Intent intent = new Intent(HomeActivity.this, GroupInfoActivity.class);
+                intent.putExtra("groupName", item.getGroupName());
                 intent.putStringArrayListExtra("memberNames", item.getMemberNames());
                 intent.putStringArrayListExtra("memberPhones", item.getMemberPhones());
                 startActivityForResult(intent, GroupInfoActivityCode);
@@ -63,6 +69,22 @@ public class HomeActivity extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        menu.add(0, 1, 1, "유저정보");
+        menu.add(0, 2, 2, "설정");
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item != null){
+            Toast.makeText(this, item.getTitle() + " selected", Toast.LENGTH_SHORT).show();
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }

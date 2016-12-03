@@ -41,6 +41,8 @@ public class MakeGroupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_makegroup);
+        getSupportActionBar().setTitle("친구목록");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         checkedContacts = new ArrayList<String>();
         checkedNames = new ArrayList<String>();
         checkedPhones = new ArrayList<String>();
@@ -139,4 +141,14 @@ public class MakeGroupActivity extends AppCompatActivity {
         return getContentResolver().query(uri, projection, null, null, sortOrder);
 
     }
+
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
