@@ -25,6 +25,7 @@
         <activity android:name=".HomeActivity"></activity>
         <activity android:name=".MakeGroupActivity"></activity>
         <activity android:name=".GroupInfoActivity"></activity>
+        <activity android:name=".SetDebtActivity"></activity>
     </application>
 
 </manifest>

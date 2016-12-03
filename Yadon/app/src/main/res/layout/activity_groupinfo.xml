@@ -17,7 +17,7 @@
     <ImageButton
         android:layout_width="100dp"
         app:srcCompat="@drawable/button_sample"
-        android:id="@+id/imageButton"
+        android:id="@+id/setDebtButton"
         android:scaleType="centerInside"
         android:background="@android:color/transparent"
         android:layout_height="50dp"
