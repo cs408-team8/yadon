@@ -12,119 +12,11 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\kakaostory\1.1.25\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="c6ffd8602a262b717ea7635da63e6984e611aef2">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.kakao.sdk-kakaostory-1.1.25_1836b75090d4e8ac8a7cce29333562fe23c961e0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\kakaotalk\1.1.25\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="958943ada834a8e8be8352bd014edaf115eb0a4f">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.kakao.sdk-kakaotalk-1.1.25_10ca1622f1d196b1c003a9b4a30843b8e304a910\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\kakaolink\1.1.25\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="bdd19ee9f2687f3f1f294e0ca2392dba595f3def">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.kakao.sdk-kakaolink-1.1.25_19a6311bea210c834c369f636c1fa78429531641\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_8a51ec510a82bdf577e21baaa31519f12edef318\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_a5fdbed580724712a503fc75d10dc302b1214967\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_25e81e6184ec03ddf7694c35b4f11d34407ca10e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\auth\1.1.25\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="8ef8614059610007dce5296cc9732abf5677cb16">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.kakao.sdk-auth-1.1.25_e0763855e4a6e599eb905d383c9e5bbbb0233ea5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_39b5a517ff8165083008c6c494c961f918c94f00\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="c0c912d58c9468b1f9d9769c8975afdf2c85d681">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-7.8.0_ef4676cc6090d40ed79f46a99c27cd6c29ea87a5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="f55406100341931fdc5983bb836a6267121addf1">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_bf8fc9837e5e3d2dc9f0bcdc9f8212814b3d6443\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_b22c1415e63ca2136b0031a2a09392bfd73df041\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.2"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_bb86655b68c0f23d363a6cb713643fafc49df9c7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="3abb0df1e9b6c589f7928fbcc3e330a0167329b1">
+        sha1="667addb83b65d1613461cd8ebcb6521960b4eb61">
         <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_55defe07d174e5d3d1d8b624782a5d569454df0a\classes.dex" />
     </item>
     <item
@@ -165,6 +57,42 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\kakaostory\1.1.25\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="c6ffd8602a262b717ea7635da63e6984e611aef2">
+        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.kakao.sdk-kakaostory-1.1.25_1836b75090d4e8ac8a7cce29333562fe23c961e0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\kakaotalk\1.1.25\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="958943ada834a8e8be8352bd014edaf115eb0a4f">
+        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.kakao.sdk-kakaotalk-1.1.25_10ca1622f1d196b1c003a9b4a30843b8e304a910\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\kakaolink\1.1.25\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="bdd19ee9f2687f3f1f294e0ca2392dba595f3def">
+        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.kakao.sdk-kakaolink-1.1.25_19a6311bea210c834c369f636c1fa78429531641\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_8a51ec510a82bdf577e21baaa31519f12edef318\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\friends\1.1.25\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -180,6 +108,33 @@
         revision="24.0.2"
         sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
         <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_573ba06de94aaf218c380a72dc350b7fa40312fb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_a5fdbed580724712a503fc75d10dc302b1214967\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_25e81e6184ec03ddf7694c35b4f11d34407ca10e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\auth\1.1.25\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8ef8614059610007dce5296cc9732abf5677cb16">
+        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.kakao.sdk-auth-1.1.25_e0763855e4a6e599eb905d383c9e5bbbb0233ea5\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -219,6 +174,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_39b5a517ff8165083008c6c494c961f918c94f00\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -237,6 +201,33 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="6fd1063e81df80b687d8cd89596f0e3778d223c7">
+        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_bf8fc9837e5e3d2dc9f0bcdc9f8212814b3d6443\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.8.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="c0c912d58c9468b1f9d9769c8975afdf2c85d681">
+        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-7.8.0_ef4676cc6090d40ed79f46a99c27cd6c29ea87a5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_b22c1415e63ca2136b0031a2a09392bfd73df041\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\push\1.1.25\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -252,6 +243,15 @@
         revision="24.0.2"
         sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
         <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_cd6eac6d9e793625113736bd6a164af4cfb128ca\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_bb86655b68c0f23d363a6cb713643fafc49df9c7\classes.dex" />
     </item>
 
 </items>

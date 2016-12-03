@@ -2,6 +2,7 @@ package com.team8.cs408.yadon;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,8 +43,7 @@ public class SetDebtMemberListViewAdapter extends BaseAdapter {
         SetDebtMemberListViewItem listViewItem = setDebtGroupMemberListViewItem_List.get(position);
 
         memberNameView.setText(listViewItem.getMemberName());
-        memberDebtView.setHint(Integer.toString(listViewItem.getMemberDebt()));
-
+        memberDebtView.setText(Integer.toString(listViewItem.getMemberDebt()));
         return convertView;
     }
 
@@ -63,7 +63,6 @@ public class SetDebtMemberListViewAdapter extends BaseAdapter {
 
         item.setMemberName(memberName);
         item.setMemberDebt(memberDebt);
-
         setDebtGroupMemberListViewItem_List.add(item);
     }
 

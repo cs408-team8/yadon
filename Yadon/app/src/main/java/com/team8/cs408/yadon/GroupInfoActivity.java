@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -19,7 +20,8 @@ public class GroupInfoActivity extends AppCompatActivity {
     ArrayList<String> memberNames;
     ArrayList<String> memberPhones;
     String groupName;
-    int memberDebt;
+    ArrayList<Integer> memberDebts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,14 +31,17 @@ public class GroupInfoActivity extends AppCompatActivity {
         groupName = inputIntent.getStringExtra("groupName");
         memberNames = inputIntent.getStringArrayListExtra("memberNames");
         memberPhones = inputIntent.getStringArrayListExtra("memberPhones");
-        memberDebt = 0;
+        memberDebts = new ArrayList<Integer>();
+        for (int i = 0; i < memberNames.size(); i++) {
+            memberDebts.add(0);
+        }
         getSupportActionBar().setTitle(groupName);
 
         adapter = new GroupMemberListViewAdapter();
         listView = (ListView) findViewById(R.id.listview_member);
         listView.setAdapter(adapter);
         for (int i = 0; i < memberNames.size(); i++) {
-            adapter.addItem(ContextCompat.getDrawable(this, R.drawable.member_ok), memberNames.get(i), memberPhones.get(i), memberDebt);
+            adapter.addItem(ContextCompat.getDrawable(this, R.drawable.member_ok), memberNames.get(i), memberPhones.get(i), memberDebts.get(i));
         }
         ImageButton setDebtButton = (ImageButton) findViewById(R.id.setDebtButton);
         setDebtButton.setOnClickListener(new ImageButton.OnClickListener() {
@@ -45,11 +50,25 @@ public class GroupInfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(GroupInfoActivity.this, SetDebtActivity.class);
                 intent.putExtra("groupName", groupName);
                 intent.putStringArrayListExtra("memberNames", memberNames);
-                intent.putExtra("memberDebt", memberDebt);
+                intent.putIntegerArrayListExtra("memberDebts", memberDebts);
                 startActivityForResult(intent, SetDebtActivityCode);
             }
         });
     }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            if (requestCode == SetDebtActivityCode) {
+                memberDebts = data.getIntegerArrayListExtra("memberDebts");
+                for (int i = 0; i < memberDebts.size(); i++) {
+                    ((GroupMemberListViewItem) adapter.getItem(i)).setMemberDebt(memberDebts.get(i));
+                }
+                adapter.notifyDataSetChanged();     //update the listview
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
     public boolean onOptionsItemSelected(android.view.MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:

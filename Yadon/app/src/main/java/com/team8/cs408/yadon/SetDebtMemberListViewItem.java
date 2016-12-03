@@ -1,9 +1,12 @@
 package com.team8.cs408.yadon;
 
-public class SetDebtMemberListViewItem {
+import android.widget.EditText;
+
+public class SetDebtMemberListViewItem extends Object {
 
     private String mMemberName;
     private int mMemberDebt;
+    private EditText mMemberEditText;
 
     public SetDebtMemberListViewItem() {
         mMemberDebt = 0;
@@ -11,6 +14,10 @@ public class SetDebtMemberListViewItem {
 
     public void setMemberName(String memberName) {
         mMemberName = memberName;
+    }
+
+    public void setMemberEditText(EditText memberEditText) {
+        mMemberEditText = memberEditText;
     }
 
 
@@ -24,6 +31,10 @@ public class SetDebtMemberListViewItem {
 
     public String getMemberName() {
         return this.mMemberName;
+    }
+
+    public EditText getMemberEditText() {
+        return this.mMemberEditText;
     }
 
 }
