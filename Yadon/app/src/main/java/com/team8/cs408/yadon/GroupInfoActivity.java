@@ -1,6 +1,7 @@
 package com.team8.cs408.yadon;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -9,12 +10,15 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import com.team8.cs408.yadonDataBase.MyApplication;
+
 import java.util.ArrayList;
 
 
 public class GroupInfoActivity extends AppCompatActivity {
     Intent inputIntent;
     private ListView listView;
+    private Cursor mCursor;
     GroupMemberListViewAdapter adapter;
     public final int SetDebtActivityCode = 3;
     ArrayList<String> memberNames;
@@ -29,20 +33,13 @@ public class GroupInfoActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         inputIntent = getIntent();
         groupName = inputIntent.getStringExtra("groupName");
-        memberNames = inputIntent.getStringArrayListExtra("memberNames");
-        memberPhones = inputIntent.getStringArrayListExtra("memberPhones");
         memberDebts = new ArrayList<Integer>();
-        for (int i = 0; i < memberNames.size(); i++) {
-            memberDebts.add(0);
-        }
         getSupportActionBar().setTitle(groupName);
-
         adapter = new GroupMemberListViewAdapter();
         listView = (ListView) findViewById(R.id.listview_member);
         listView.setAdapter(adapter);
-        for (int i = 0; i < memberNames.size(); i++) {
-            adapter.addItem(ContextCompat.getDrawable(this, R.drawable.member_ok), memberNames.get(i), memberPhones.get(i), memberDebts.get(i));
-        }
+        updateGroupMemberListView();
+
         ImageButton setDebtButton = (ImageButton) findViewById(R.id.setDebtButton);
         setDebtButton.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
@@ -67,6 +64,22 @@ public class GroupInfoActivity extends AppCompatActivity {
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void updateGroupMemberListView() {
+        adapter.clear();
+        mCursor = MyApplication.mDbOpenHelper.getGroupColumns(groupName);
+        Log.d("number of columns : ", "" + mCursor.getCount());
+        while (mCursor.moveToNext()) {
+            memberNames.add(mCursor.getString(mCursor.getColumnIndex("name")));
+            memberPhones.add(mCursor.getString(mCursor.getColumnIndex("phoneNumber")));
+            memberDebts.add(mCursor.getInt(mCursor.getColumnIndex("debts")));
+        }
+        for (int i = 0; i < memberNames.size(); i++) {
+            adapter.addItem(ContextCompat.getDrawable(this, R.drawable.member_ok), memberNames.get(i), memberPhones.get(i), memberDebts.get(i));
+        }
+        adapter.notifyDataSetChanged();
+        mCursor.close();
     }
 
     public boolean onOptionsItemSelected(android.view.MenuItem item) {

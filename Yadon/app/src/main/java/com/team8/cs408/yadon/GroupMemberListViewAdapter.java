@@ -70,4 +70,8 @@ public class GroupMemberListViewAdapter extends BaseAdapter {
         groupMemberListViewItem_List.add(item);
     }
 
+    public void clear(){
+        groupMemberListViewItem_List.clear();
+    }
+
 }

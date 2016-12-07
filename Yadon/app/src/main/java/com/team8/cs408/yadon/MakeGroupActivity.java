@@ -26,6 +26,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.kakao.auth.authorization.AuthorizationResult;
+import com.team8.cs408.yadonDataBase.MyApplication;
 
 public class MakeGroupActivity extends AppCompatActivity {
     private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 100;
@@ -116,13 +117,12 @@ public class MakeGroupActivity extends AppCompatActivity {
                     SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd-HH:mm", Locale.KOREA);
                     groupName = df.format(new Date());
                 }
-
-                Intent intent = new Intent();
-                intent.putStringArrayListExtra("checkedNames", checkedNames);
-                intent.putStringArrayListExtra("checkedPhones", checkedPhones);
-                intent.putExtra("groupName", groupName);
-                setResult(RESULT_OK, intent);
-                finish();                   // go to onActivityResult in HomeActivity.java
+                for (int i = 0; i < checkedNames.size(); i++) {
+                    MyApplication.mDbOpenHelper.insertColumn(groupName, checkedNames.get(i), checkedPhones.get(i), 0);
+                }
+                Intent intent = new Intent(listView.getContext(), HomeActivity.class);
+                startActivity(intent);      // go to onActivityResult in HomeActivity.java
+                finish();
             }
         });
     }

@@ -205,7 +205,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.2"
-        sha1="6fd1063e81df80b687d8cd89596f0e3778d223c7">
+        sha1="e6fb955a833748bfc1d83df6d6c54654a356ad25">
         <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_bf8fc9837e5e3d2dc9f0bcdc9f8212814b3d6443\classes.dex" />
     </item>
     <item

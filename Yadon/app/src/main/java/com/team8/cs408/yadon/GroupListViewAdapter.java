@@ -13,10 +13,10 @@ import java.util.ArrayList;
 
 
 public class GroupListViewAdapter extends BaseAdapter {
-    private ArrayList<GroupInfoListViewItem> groupInfoListViewItem_List;
+    private ArrayList<GroupListViewItem> groupInfoListViewItem_List;
 
     public GroupListViewAdapter() {
-        groupInfoListViewItem_List = new ArrayList<GroupInfoListViewItem>();
+        groupInfoListViewItem_List = new ArrayList<GroupListViewItem>();
     }
 
     @Override
@@ -38,7 +38,7 @@ public class GroupListViewAdapter extends BaseAdapter {
         ImageView graphView = (ImageView) convertView.findViewById(R.id.item_piegraph);
         TextView groupNameView = (TextView) convertView.findViewById(R.id.item_groupname);
 
-        GroupInfoListViewItem listViewItem = groupInfoListViewItem_List.get(position);
+        GroupListViewItem listViewItem = groupInfoListViewItem_List.get(position);
 
         graphView.setImageDrawable(listViewItem.getGraph());
         groupNameView.setText(listViewItem.getGroupName());
@@ -56,14 +56,16 @@ public class GroupListViewAdapter extends BaseAdapter {
         return groupInfoListViewItem_List.get(position);
     }
 
-    public void addItem(Drawable graph, String groupName, ArrayList<String> memberNames, ArrayList<String> memberPhones) {
-        GroupInfoListViewItem item = new GroupInfoListViewItem();
+    public void addItem(Drawable graph, String groupName) {
+        GroupListViewItem item = new GroupListViewItem();
 
         item.setGraph(graph);
         item.setGroupName(groupName);
-        item.setMemberNames(memberNames);
-        item.setMemberPhones(memberPhones);
 
         groupInfoListViewItem_List.add(item);
+    }
+
+    public void clear(){
+        groupInfoListViewItem_List.clear();
     }
 }
