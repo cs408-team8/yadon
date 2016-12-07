@@ -2,8 +2,8 @@ package com.team8.cs408.yadonDataBase;
 
 import android.provider.BaseColumns;
 
-//http://arabiannight.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CAndroid-DB-
-// %EC%83%9D%EC%84%B1-%EB%B0%8F-%EA%B4%80%EB%A6%AC-Cursor-Query
+//Reference :
+// http://arabiannight.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CAndroid-DB-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EA%B4%80%EB%A6%AC-Cursor-Query
 
 public final class DataBases {
     public static final class CreateDB implements BaseColumns{

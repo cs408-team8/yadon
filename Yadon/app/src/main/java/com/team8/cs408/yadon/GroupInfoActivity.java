@@ -20,7 +20,6 @@ public class GroupInfoActivity extends AppCompatActivity {
     private ListView listView;
     private Cursor mCursor;
     GroupMemberListViewAdapter adapter;
-    public final int SetDebtActivityCode = 3;
     ArrayList<String> memberNames;
     ArrayList<String> memberPhones;
     String groupName;
@@ -30,50 +29,47 @@ public class GroupInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_groupinfo);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);  //back button
+
         inputIntent = getIntent();
         groupName = inputIntent.getStringExtra("groupName");
+
+        memberNames = new ArrayList<String>();
+        memberPhones = new ArrayList<String>();
         memberDebts = new ArrayList<Integer>();
+
         getSupportActionBar().setTitle(groupName);
+
         adapter = new GroupMemberListViewAdapter();
         listView = (ListView) findViewById(R.id.listview_member);
         listView.setAdapter(adapter);
         updateGroupMemberListView();
 
-        ImageButton setDebtButton = (ImageButton) findViewById(R.id.setDebtButton);
+        ImageButton setDebtButton = (ImageButton) findViewById(R.id.setDebtButton); //set debt button
         setDebtButton.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(GroupInfoActivity.this, SetDebtActivity.class);
+                Intent intent = new Intent(view.getContext(), SetDebtActivity.class);
                 intent.putExtra("groupName", groupName);
-                intent.putStringArrayListExtra("memberNames", memberNames);
-                intent.putIntegerArrayListExtra("memberDebts", memberDebts);
-                startActivityForResult(intent, SetDebtActivityCode);
+                startActivity(intent);
+                finish();
             }
         });
     }
+                    //((GroupMemberListViewItem) adapter.getItem(i)).setMemberDebt(memberDebts.get(i));
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            if (requestCode == SetDebtActivityCode) {
-                memberDebts = data.getIntegerArrayListExtra("memberDebts");
-                for (int i = 0; i < memberDebts.size(); i++) {
-                    ((GroupMemberListViewItem) adapter.getItem(i)).setMemberDebt(memberDebts.get(i));
-                }
-                adapter.notifyDataSetChanged();     //update the listview
-            }
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
 
     private void updateGroupMemberListView() {
         adapter.clear();
-        mCursor = MyApplication.mDbOpenHelper.getGroupColumns(groupName);
-        Log.d("number of columns : ", "" + mCursor.getCount());
+        memberNames.clear();
+        memberPhones.clear();
+        memberDebts.clear();
+        mCursor = MyApplication.mDbOpenHelper.getGroupColumns(groupName);   //get columns whose groupName att is set to groupName
         while (mCursor.moveToNext()) {
             memberNames.add(mCursor.getString(mCursor.getColumnIndex("name")));
             memberPhones.add(mCursor.getString(mCursor.getColumnIndex("phoneNumber")));
-            memberDebts.add(mCursor.getInt(mCursor.getColumnIndex("debts")));
+            memberDebts.add(mCursor.getInt(mCursor.getColumnIndex("debt")));
         }
         for (int i = 0; i < memberNames.size(); i++) {
             adapter.addItem(ContextCompat.getDrawable(this, R.drawable.member_ok), memberNames.get(i), memberPhones.get(i), memberDebts.get(i));
@@ -85,9 +81,20 @@ public class GroupInfoActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(android.view.MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                Intent intent = new Intent(GroupInfoActivity.this, HomeActivity.class);
+                startActivity(intent);
                 finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    //Phone back button
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(GroupInfoActivity.this, HomeActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

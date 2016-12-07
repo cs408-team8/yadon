@@ -1,8 +1,10 @@
 package com.team8.cs408.yadon;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -24,16 +26,21 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity {
     private ListView listView;
     private Cursor mCursor;
-    public final int MakeGroupActivityCode = 0;
-    public final int GroupInfoActivityCode = 1;
     GroupListViewAdapter adapter;
+
+    // Request code for READ_CONTACTS. It can be any number > 0.
+    private static final int PERMISSIONS_REQUEST_READ_CONTACTS = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         getSupportActionBar().setTitle("그룹");
+
+        showContacts();
+
         ImageButton addGroupButton = (ImageButton) findViewById(R.id.addGroup);
+
         adapter = new GroupListViewAdapter();
         listView = (ListView) findViewById(R.id.listview_group);
         listView.setAdapter(adapter);
@@ -54,15 +61,13 @@ public class HomeActivity extends AppCompatActivity {
                 GroupListViewItem item = (GroupListViewItem) parent.getItemAtPosition(position);
                 Intent intent = new Intent(view.getContext(), GroupInfoActivity.class);
 
-                intent.putExtra("groupName", item.getGroupName());
-                /*
-                intent.putStringArrayListExtra("memberNames", item.getMemberNames());
-                intent.putStringArrayListExtra("memberPhones", item.getMemberPhones());
-                */
+                intent.putExtra("groupName", item.getGroupName());  //group name is needed for groupinfoactivity.
+
                 startActivity(intent);
                 finish();
             }
         });
+        //If long touch, group information goes away
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -73,7 +78,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-
+    //Update the adapter to show the current data.
     private void updateGroupListView() {
         adapter.clear();
         mCursor = MyApplication.mDbOpenHelper.getAllColumns();
@@ -109,6 +114,34 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         } else {
             return false;
+        }
+    }
+
+
+    /**
+     * Show the contacts in the ListView. This is for initial permission for read_contacts.
+     * Without this, we cannot do anything.
+     */
+    private void showContacts() {
+        // Check the SDK version and whether the permission is already granted or not.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS}, PERMISSIONS_REQUEST_READ_CONTACTS);
+            //After this point you wait for callback in onRequestPermissionsResult(int, String[], int[]) overriden method
+        } else {
+            // Android version is lesser than 6.0 or the permission is already granted.
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                           int[] grantResults) {
+        if (requestCode == PERMISSIONS_REQUEST_READ_CONTACTS) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission is granted
+                showContacts();
+            } else {
+                Toast.makeText(this, "Until you grant the permission, we canot display the names", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

@@ -3,13 +3,17 @@ package com.team8.cs408.yadon;
 import android.widget.EditText;
 
 public class SetDebtMemberListViewItem extends Object {
-
+    private String mGroupName;
     private String mMemberName;
     private int mMemberDebt;
     private EditText mMemberEditText;
 
     public SetDebtMemberListViewItem() {
         mMemberDebt = 0;
+    }
+
+    public void setGroupName(String groupName) {
+        mGroupName = groupName;
     }
 
     public void setMemberName(String memberName) {
@@ -23,6 +27,10 @@ public class SetDebtMemberListViewItem extends Object {
 
     public void setMemberDebt(int memberDebt) {
         mMemberDebt = memberDebt;
+    }
+
+    public String getGroupName() {
+        return this.mGroupName;
     }
 
     public int getMemberDebt() {
