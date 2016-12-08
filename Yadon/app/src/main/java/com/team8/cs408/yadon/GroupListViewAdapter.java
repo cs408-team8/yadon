@@ -3,6 +3,7 @@ package com.team8.cs408.yadon;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -53,6 +54,12 @@ public class GroupListViewAdapter extends BaseAdapter {
         GraphView pieGraphView = new GraphView(context); //graph
 
         GroupListViewItem listViewItem = groupInfoListViewItem_List.get(position);
+        if(listViewItem.getTotal()==listViewItem.getRepaid()){
+            convertView.setBackgroundColor(Color.argb(50,0,0,255));
+        }
+        else{
+            convertView.setBackgroundColor(Color.argb(50,255,0,0));
+        }
         groupName =listViewItem.getGroupName();
         groupNameView.setText(groupName);
         pieGraphView.setArgs(listViewItem.getTotal(), listViewItem.getRepaid());

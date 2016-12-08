@@ -3,237 +3,237 @@
 
     <item
         is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-24.2.1_ba4f359972b336cf43b02d61b1f1ccf66c366424.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\network\1.1.25\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="c718655bbf8a8c5c7fa8f944eb4433edc31aa208">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-network-1.1.25_d7b8c711b16be02a82f67014306c2a12c812301c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="c756d14e99d39471e99013a1e8fd2f3813ed42bf">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-gcm-7.8.0_86606e67607b622a3d8bb4c78e89da2d1408ff39.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-24.2.1_fc96e8934e7f92816f09e5d8cf6647ecc00f13a7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\kakaostory\1.1.25\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="c6ffd8602a262b717ea7635da63e6984e611aef2">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-kakaostory-1.1.25_1836b75090d4e8ac8a7cce29333562fe23c961e0.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_805606185af125e5aea18431d4537175d8eabf7f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-24.2.1_8a51ec510a82bdf577e21baaa31519f12edef318.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_e729005355ba535ec3df3956209733a0d36e5bde.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-24.2.1_573ba06de94aaf218c380a72dc350b7fa40312fb.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\kakaolink\1.1.25\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="bdd19ee9f2687f3f1f294e0ca2392dba595f3def">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-kakaolink-1.1.25_19a6311bea210c834c369f636c1fa78429531641.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\friends\1.1.25\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="b50035313d10c11763750c1c044ce895c3296d75">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-friends-1.1.25_9bbe9cc7f6cd0e3f839b7fa0857d115f77404d0e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-24.2.1_585af7e7e1d612c49ba32d927d01a691817e816f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.2.1_a5fdbed580724712a503fc75d10dc302b1214967.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\kakaotalk\1.1.25\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="958943ada834a8e8be8352bd014edaf115eb0a4f">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-kakaotalk-1.1.25_10ca1622f1d196b1c003a9b4a30843b8e304a910.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Android\AndroidSDK\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\support-annotations-24.2.1_610a954077d9748fd85096f6f6ca26922c98d79b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\usermgmt\1.1.25\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="2ebddf366a45a660a0453669147ebb986f7a2b38">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-usermgmt-1.1.25_fc90b70e503502010023e95529942655e11dd11b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\auth\1.1.25\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="8ef8614059610007dce5296cc9732abf5677cb16">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-auth-1.1.25_e0763855e4a6e599eb905d383c9e5bbbb0233ea5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.8.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="c0c912d58c9468b1f9d9769c8975afdf2c85d681">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-7.8.0_ef4676cc6090d40ed79f46a99c27cd6c29ea87a5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_b22c1415e63ca2136b0031a2a09392bfd73df041.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_8a97c2b6b80e7a050441bb7bea104cd4d99bbc66.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.2.1_39b5a517ff8165083008c6c494c961f918c94f00.jar" />
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.2.1_06353e2cd68ba6191242da74ff1e4586b1e147cc.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\push\1.1.25\jars\classes.jar"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-24.2.1_f9edad42d141868bd5fbdbfaf78a99b06089a86e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\kakaostory\1.1.25\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="c6ffd8602a262b717ea7635da63e6984e611aef2">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-kakaostory-1.1.25_9941dca55221a3ce3a1a523a8d16e92c50b297cc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_74be8061d92cab9457104c849ea77367cd4d17c3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.2.1_c7334c614c0908720052e7d800b1faee495bd346.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\kakaolink\1.1.25\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="bdd19ee9f2687f3f1f294e0ca2392dba595f3def">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-kakaolink-1.1.25_a8d76d903536716f2f3dd9a51bac8121b45459f1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\network\1.1.25\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="c718655bbf8a8c5c7fa8f944eb4433edc31aa208">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-network-1.1.25_0a33c9a5480ccf64fe08016976f797d0ee6fec81.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\push\1.1.25\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="35354b286481386e349b06d52df9e0c157d40ed6">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-push-1.1.25_0f3eab89944fc0fce780ce4cc24da0bef12a91f8.jar" />
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-push-1.1.25_1d1117d09bc85b4ca7a9e13bfb807799927305d3.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\util\1.1.25\jars\classes.jar"
+        jar="C:\Users\RadiCalMaker\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\support-annotations-24.2.1_7526fe49c62b7a8e35b9665eec2d4b34eb41f9f5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="c0c912d58c9468b1f9d9769c8975afdf2c85d681">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-7.8.0_80f2df0825da1b3837f84f8f1130fe28ffa29e36.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="c756d14e99d39471e99013a1e8fd2f3813ed42bf">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-gcm-7.8.0_b80c1e242cbcf0f6ab63c62d1295587d890a8767.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\util\1.1.25\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="d56bc7c46e51e5a555c4c27d402c54f0c383e8fd">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-util-1.1.25_70e9bf9e27af5b431a46c039b3f7f768fd6f3ca4.jar" />
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-util-1.1.25_e6bf67f7f3598dbc44be2f32fd75d41497677b72.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_25e81e6184ec03ddf7694c35b4f11d34407ca10e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="24.0.2"
-        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.2.1_cd6eac6d9e793625113736bd6a164af4cfb128ca.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
         jumboMode="false"
         optimize="true"
         revision="24.0.2"
         sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="C:\Programming\CSProject\YadonProject\Yadon\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_bb86655b68c0f23d363a6cb713643fafc49df9c7.jar" />
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_72801c9d0825f3ed77cf43d53d89507a32337591.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_7ea12a9eb1efe417003992a8c989ddad1ce3346f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-24.2.1_42a2086b2910548697870583402dadc237660470.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.2.1_110114e1ecb27a557e176c6e09d6a96f7945e551.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\usermgmt\1.1.25\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="2ebddf366a45a660a0453669147ebb986f7a2b38">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-usermgmt-1.1.25_a73a64d1736e9bc4e0a065684f84e722f89488d9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\friends\1.1.25\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b50035313d10c11763750c1c044ce895c3296d75">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-friends-1.1.25_abd357fc623d049851498dbba70ff8bbd101c45b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-24.2.1_a0f860eeb56c68a9962502f30618b0ee116528a2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\auth\1.1.25\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8ef8614059610007dce5296cc9732abf5677cb16">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-auth-1.1.25_8d35adce0396f3da5494fe7a3cefe2492bfdd86d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_a0aa8edb264c376b22fe2bb47dae6e7cc36a475c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-24.2.1_7feb7ffa418c13c810e8c05b5d5aae6f1ac8cf22.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-24.2.1_ee2259449181dcc659db01392e0c06fb1315d460.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.kakao.sdk\kakaotalk\1.1.25\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="958943ada834a8e8be8352bd014edaf115eb0a4f">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.kakao.sdk-kakaotalk-1.1.25_c99e542f68b214f97d2f8f62e6fce9bd70b6d2f0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.2.1_925802667e4184af670d7bcdba9f67d4cfa5564e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\RadiCalMaker\Documents\yadon\Yadon\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.1_5c6fb876f60eeb235bcfee1d08c1ce1dc69ef3ee.jar" />
     </item>
 
 </items>
