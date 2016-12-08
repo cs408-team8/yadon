@@ -46,31 +46,28 @@ public class SetDebtMemberListViewAdapter extends BaseAdapter {
         }
 
         TextView memberNameView = (TextView) convertView.findViewById(R.id.item_membername);
-        EditText memberDebtView = (EditText) convertView.findViewById(R.id.item_setmemberdebt);
+        final EditText memberDebtView = (EditText) convertView.findViewById(R.id.item_setmemberdebt);
 
         final SetDebtMemberListViewItem listViewItem = setDebtGroupMemberListViewItem_List.get(position);
         memberNameView.setText(listViewItem.getMemberName());
         memberDebtView.setText(Integer.toString(listViewItem.getMemberDebt()));
-        memberDebtView.addTextChangedListener(new TextWatcher() {
+        memberDebtView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.d("onTextChanged !! ", "" + pos);
-                if (s.toString().length() <= 0) {
-                    s = "0";
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus  == false){
+                    Log.d("onTextChanged !! ", "" + pos);
+                    String s;
+                    if (memberDebtView.getText().toString().length() <= 0) {
+                        s = "0";
+                    }
+                    else{
+                        s = memberDebtView.getText().toString();
+                    }
+                    MyApplication.mDbOpenHelper.updateTheColumn_debt(listViewItem.getGroupName(),
+                            listViewItem.getMemberName(), Integer.parseInt(s));
+                    listViewItem.setMemberDebt(Integer.parseInt(s));
+                    Log.d("in onTextChnaged! ", "name : " + listViewItem.getMemberName() + "debt : " + Integer.toString(listViewItem.getMemberDebt()));
                 }
-                MyApplication.mDbOpenHelper.updateTheColumn_debt(listViewItem.getGroupName(),
-                        listViewItem.getMemberName(), Integer.parseInt(s.toString()));
-                listViewItem.setMemberDebt(Integer.parseInt(s.toString()));
-                Log.d("in onTextChnaged! ", "name : " + listViewItem.getMemberName() + "debt : " + Integer.toString(listViewItem.getMemberDebt()));
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
             }
         });
 
