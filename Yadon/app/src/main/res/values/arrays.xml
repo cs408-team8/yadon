@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="period">
+        <item>6시간</item>
+        <item>12시간</item>
+        <item>1일</item>
+        <item>2일</item>
+    </string-array>
+</resources>

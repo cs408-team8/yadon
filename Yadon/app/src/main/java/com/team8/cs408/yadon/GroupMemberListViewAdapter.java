@@ -37,13 +37,13 @@ public class GroupMemberListViewAdapter extends BaseAdapter {
 
         ImageView profileView = (ImageView) convertView.findViewById(R.id.item_confirmimage);
         TextView memberNameView = (TextView) convertView.findViewById(R.id.item_membername);
-        TextView memberdebtView = (TextView) convertView.findViewById(R.id.item_memberdebt);
+        TextView memberDebtView = (TextView) convertView.findViewById(R.id.item_memberdebt);
 
         GroupMemberListViewItem listViewItem = groupMemberListViewItem_List.get(position);
 
         profileView.setImageDrawable(listViewItem.getProfile());
         memberNameView.setText(listViewItem.getMemberName());
-        memberdebtView.setText(Integer.toString(listViewItem.getMemberDebt()));
+        memberDebtView.setText(Integer.toString(listViewItem.getMemberDebt()));
 
         return convertView;
     }

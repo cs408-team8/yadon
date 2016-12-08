@@ -5,9 +5,11 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import com.team8.cs408.yadonDataBase.DbOpenHelper;
 import com.team8.cs408.yadonDataBase.MyApplication;
+import com.team8.cs408.yadonDraw.GraphView;
 
 
 public class LoadingActivity extends AppCompatActivity {

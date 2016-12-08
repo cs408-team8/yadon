@@ -37,4 +37,5 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+    <include android:id="@+id/graph_grouplist2" layout="@layout/piegraph_grouplist" />
 </RelativeLayout>

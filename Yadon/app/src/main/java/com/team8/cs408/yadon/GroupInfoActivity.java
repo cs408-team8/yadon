@@ -8,9 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.team8.cs408.yadonDataBase.MyApplication;
+import com.team8.cs408.yadonDraw.GraphView;
 
 import java.util.ArrayList;
 
@@ -24,11 +26,16 @@ public class GroupInfoActivity extends AppCompatActivity {
     ArrayList<String> memberPhones;
     String groupName;
     ArrayList<Integer> memberDebts;
+    GraphView barGraphView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_groupinfo);
+
+        LinearLayout groupInforViewGraphLayout = (LinearLayout) findViewById(R.id.graph_groupinfo);
+        barGraphView = new GraphView(this);
+        groupInforViewGraphLayout.addView(barGraphView);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);  //back button
 
@@ -45,6 +52,8 @@ public class GroupInfoActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listview_member);
         listView.setAdapter(adapter);
         updateGroupMemberListView();
+
+
 
         ImageButton setDebtButton = (ImageButton) findViewById(R.id.setDebtButton); //set debt button
         setDebtButton.setOnClickListener(new ImageButton.OnClickListener() {
@@ -74,6 +83,15 @@ public class GroupInfoActivity extends AppCompatActivity {
         for (int i = 0; i < memberNames.size(); i++) {
             adapter.addItem(ContextCompat.getDrawable(this, R.drawable.member_ok), memberNames.get(i), memberPhones.get(i), memberDebts.get(i));
         }
+        int memberTotal = memberNames.size();
+        int memberRepaid = 0;
+        for(int i=0;i<memberTotal;i++){
+            if(memberDebts.get(i) <= 0){
+                memberRepaid++;
+            }
+        }
+        barGraphView.setArgs(memberTotal, memberRepaid);
+
         adapter.notifyDataSetChanged();
         mCursor.close();
     }

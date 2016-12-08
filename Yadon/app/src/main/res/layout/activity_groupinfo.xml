@@ -4,13 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include android:id="@+id/graph_groupinfo" layout="@layout/bargrpah_groupinfo" />
+
     <ListView
         android:id="@+id/listview_member"
         android:layout_width="match_parent"
         android:layout_height="400dp"
+        android:layout_below="@id/graph_groupinfo"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginEnd="10dp" />
 

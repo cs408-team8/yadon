@@ -7,6 +7,8 @@ import java.util.ArrayList;
 public class GroupListViewItem {
     private Drawable mPieGraph;
     private String mGroupName;
+    private int mTotal;
+    private int mRepaid;
 
 
     public GroupListViewItem() {
@@ -14,6 +16,11 @@ public class GroupListViewItem {
 
     public void setGraph(Drawable pieGraph) {
         mPieGraph = pieGraph;
+    }
+
+    public void setArgs(int total, int repaid){
+        mTotal = total;
+        mRepaid = repaid;
     }
 
     public void setGroupName(String groupName) {
@@ -26,5 +33,13 @@ public class GroupListViewItem {
 
     public String getGroupName() {
         return this.mGroupName;
+    }
+
+    public int getTotal(){
+        return this.mTotal;
+    }
+
+    public int getRepaid(){
+        return this.mRepaid;
     }
 }

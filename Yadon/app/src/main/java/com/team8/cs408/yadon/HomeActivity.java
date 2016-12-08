@@ -37,7 +37,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         getSupportActionBar().setTitle("그룹");
 
-        showContacts();
+        showContacts();     //for the permission of read_contacts
 
         ImageButton addGroupButton = (ImageButton) findViewById(R.id.addGroup);
 
@@ -83,16 +83,31 @@ public class HomeActivity extends AppCompatActivity {
         adapter.clear();
         mCursor = MyApplication.mDbOpenHelper.getAllColumns();
         Log.d("number of columns : ", "" + mCursor.getCount());
+        int indexCount = 0;
         ArrayList<String> groupNameList = new ArrayList<String>();
+        ArrayList<Integer> groupMemberTotalList = new ArrayList<Integer>();         // number of the group members
+        ArrayList<Integer> groupMemberRepaidList = new ArrayList<Integer>();        // number of the group members who repaid
         String tempGroupName;
         while (mCursor.moveToNext()) {
             tempGroupName = mCursor.getString(mCursor.getColumnIndex("groupName"));
             if (!groupNameList.contains(tempGroupName)) {
                 groupNameList.add(tempGroupName);
+                groupMemberTotalList.add(0);
+                groupMemberRepaidList.add(0);
+                indexCount++;
             }
+            if(mCursor.getInt(mCursor.getColumnIndex("debt")) <= 0){         //if debt >0, the person have not paid.
+                groupMemberRepaidList.set(indexCount-1,
+                        groupMemberRepaidList.get(indexCount-1) + 1);     //last index's value ++
+            }
+            groupMemberTotalList.set(indexCount-1,
+                    groupMemberTotalList.get(indexCount-1) + 1);
+
         }
+        Log.d("indexCount ! ", ""+indexCount);
         for (int i = 0; i < groupNameList.size(); i++) {
-            adapter.addItem(ContextCompat.getDrawable(this, R.drawable.graph_sample), groupNameList.get(i));
+            //adapter.addItem(ContextCompat.getDrawable(this, R.drawable.graph_sample), groupNameList.get(i));
+            adapter.addItem(groupNameList.get(i), groupMemberTotalList.get(i), groupMemberRepaidList.get(i));
         }
         adapter.notifyDataSetChanged();
         mCursor.close();
