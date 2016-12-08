@@ -22,9 +22,10 @@ import java.util.ArrayList;
 
 public class SetDebtMemberListViewAdapter extends BaseAdapter {
     private ArrayList<SetDebtMemberListViewItem> setDebtGroupMemberListViewItem_List;
-
-    public SetDebtMemberListViewAdapter() {
+    SetDebtActivity activity;
+    public SetDebtMemberListViewAdapter(SetDebtActivity inactivity) {
         setDebtGroupMemberListViewItem_List = new ArrayList<SetDebtMemberListViewItem>();
+        activity = inactivity;
     }
 
     @Override
@@ -47,7 +48,6 @@ public class SetDebtMemberListViewAdapter extends BaseAdapter {
 
         TextView memberNameView = (TextView) convertView.findViewById(R.id.item_membername);
         final EditText memberDebtView = (EditText) convertView.findViewById(R.id.item_setmemberdebt);
-
         final SetDebtMemberListViewItem listViewItem = setDebtGroupMemberListViewItem_List.get(position);
         memberNameView.setText(listViewItem.getMemberName());
         memberDebtView.setText(Integer.toString(listViewItem.getMemberDebt()));
@@ -68,6 +68,12 @@ public class SetDebtMemberListViewAdapter extends BaseAdapter {
                     listViewItem.setMemberDebt(Integer.parseInt(s));
                     Log.d("in onTextChnaged! ", "name : " + listViewItem.getMemberName() + "debt : " + Integer.toString(listViewItem.getMemberDebt()));
                 }
+                int sum=0;
+                for(int i=0;i<activity.adapter.getCount();i++){
+                    SetDebtMemberListViewItem item = (SetDebtMemberListViewItem) activity.adapter.getItem(i);
+                    sum+=item.getMemberDebt();
+                }
+                activity.total.setText(String.valueOf(sum));
             }
         });
 

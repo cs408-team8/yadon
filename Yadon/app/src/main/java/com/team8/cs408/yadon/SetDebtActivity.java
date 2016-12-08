@@ -7,6 +7,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -26,6 +27,7 @@ public class SetDebtActivity extends AppCompatActivity {
     ArrayList<String> memberNames;
     ArrayList<Integer> memberDebts;
     Cursor mCursor;
+    EditText total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,17 +44,20 @@ public class SetDebtActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle(groupName);
 
-        adapter = new SetDebtMemberListViewAdapter();
+        adapter = new SetDebtMemberListViewAdapter(this);
         listView = (ListView) findViewById(R.id.listview_member);
         listView.setAdapter(adapter);
         listView.setItemsCanFocus(true);
         updateGroupMemberListView();
 
+        total = (EditText) findViewById(R.id.editText);
+
+
         ImageButton confirm = (ImageButton) findViewById(R.id.setdebt_confirmButton);
         confirm.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), GroupInfoActivity.class);
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), GroupInfoActivity.class);
                 intent.putExtra("groupName", groupName);
                 /*
                 adapter.notifyDataSetChanged();
@@ -70,14 +75,28 @@ public class SetDebtActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton dutchPayButton = (ImageButton) findViewById(R.id.setdebt_dutchpayButton);
-        dutchPayButton.setOnClickListener(new ImageButton.OnClickListener(){
+
+
+        ImageButton dutch = (ImageButton) findViewById(R.id.setdebt_dutchpayButton);
+        dutch.setOnClickListener(new ImageButton.OnClickListener(){
+
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AlarmActivity.class);
-                intent.putExtra("groupName", groupName);
-                startActivity(intent);
-                finish();
+                String s;
+                if (total.getText().toString().length() <= 0) {
+                    s = "0";
+                }
+                else{
+                    s = total.getText().toString();
+                }
+                for(int i=0;i<adapter.getCount();i++){
+                    SetDebtMemberListViewItem item = (SetDebtMemberListViewItem) adapter.getItem(i);
+                    MyApplication.mDbOpenHelper.updateTheColumn_debt(item.getGroupName(),
+                            item.getMemberName(), Integer.parseInt(s)/(adapter.getCount()+1));
+                    item.setMemberDebt(Integer.parseInt(s)/(adapter.getCount()+1));
+
+                }
+                updateGroupMemberListView();
             }
         });
     }

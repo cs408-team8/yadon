@@ -24,6 +24,7 @@
         <activity android:name=".SetDebtActivity"
             android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".AlarmActivity"></activity>
+        <receiver android:name="com.team8.cs408.yadonReceiver.AlarmReceiver"></receiver>
 
     </application>
 
