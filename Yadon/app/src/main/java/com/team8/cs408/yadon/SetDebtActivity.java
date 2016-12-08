@@ -51,8 +51,8 @@ public class SetDebtActivity extends AppCompatActivity {
         ImageButton confirm = (ImageButton) findViewById(R.id.setdebt_confirmButton);
         confirm.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), GroupInfoActivity.class);
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), GroupInfoActivity.class);
                 intent.putExtra("groupName", groupName);
                 /*
                 adapter.notifyDataSetChanged();
@@ -67,6 +67,17 @@ public class SetDebtActivity extends AppCompatActivity {
                 updateGroupMemberListView();
                 startActivity(intent);
                 finish();                   // go to onActivityResult in HomeActivity.java
+            }
+        });
+
+        ImageButton dutchPayButton = (ImageButton) findViewById(R.id.setdebt_dutchpayButton);
+        dutchPayButton.setOnClickListener(new ImageButton.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AlarmActivity.class);
+                intent.putExtra("groupName", groupName);
+                startActivity(intent);
+                finish();
             }
         });
     }

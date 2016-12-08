@@ -10,9 +10,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AlarmActivity">
-
-        </activity>
         <activity android:name=".LoadingActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:configChanges="keyboardHidden|orientation">
@@ -26,6 +23,8 @@
         <activity android:name=".GroupInfoActivity"></activity>
         <activity android:name=".SetDebtActivity"
             android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name=".AlarmActivity"></activity>
+
     </application>
 
 </manifest>

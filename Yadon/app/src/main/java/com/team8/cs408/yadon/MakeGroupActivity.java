@@ -118,7 +118,8 @@ public class MakeGroupActivity extends AppCompatActivity {
                     groupName = df.format(new Date());
                 }
                 for (int i = 0; i < checkedNames.size(); i++) {
-                    MyApplication.mDbOpenHelper.insertColumn(groupName, checkedNames.get(i), checkedPhones.get(i), 0);
+                    MyApplication.mDbOpenHelper.insertColumn(groupName, checkedNames.get(i), checkedPhones.get(i),
+                            0, 12 * 60, 6);
                 }
                 Intent intent = new Intent(listView.getContext(), HomeActivity.class);
                 startActivity(intent);      // go to onActivityResult in HomeActivity.java
