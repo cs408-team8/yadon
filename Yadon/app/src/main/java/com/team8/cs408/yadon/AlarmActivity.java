@@ -108,4 +108,11 @@ public class AlarmActivity extends AppCompatActivity {
         });
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(AlarmActivity.this, GroupInfoActivity.class);
+        intent.putExtra("groupName", groupName);
+        startActivity(intent);
+        finish();
+    }
 }

@@ -1,12 +1,15 @@
 package com.team8.cs408.yadon;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,8 +21,11 @@ import java.util.ArrayList;
 
 public class GroupListViewAdapter extends BaseAdapter {
     private ArrayList<GroupListViewItem> groupInfoListViewItem_List;
+    Context context;
+    String groupName;
 
-    public GroupListViewAdapter() {
+    public GroupListViewAdapter(Context context) {
+        this.context = context;
         groupInfoListViewItem_List = new ArrayList<GroupListViewItem>();
     }
 
@@ -41,15 +47,26 @@ public class GroupListViewAdapter extends BaseAdapter {
 
         TextView groupNameView = (TextView) convertView.findViewById(R.id.item_groupname);
         LinearLayout groupListViewItemGraphLayout = (LinearLayout) convertView.findViewById(R.id.graph_grouplist);
+        ImageButton groupSetAlarmButton = (ImageButton) convertView.findViewById(R.id.group_setalarm);
+        groupSetAlarmButton.setFocusable(false);
 
         GraphView pieGraphView = new GraphView(context); //graph
 
         GroupListViewItem listViewItem = groupInfoListViewItem_List.get(position);
-        //graphView.setImageDrawable(listViewItem.getGraph());
-        groupNameView.setText(listViewItem.getGroupName());
+        groupName =listViewItem.getGroupName();
+        groupNameView.setText(groupName);
         pieGraphView.setArgs(listViewItem.getTotal(), listViewItem.getRepaid());
         pieGraphView.setPieGraph();
         groupListViewItemGraphLayout.addView(pieGraphView);
+        groupSetAlarmButton.setOnClickListener(new ImageButton.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(context, AlarmActivity.class);
+                intent.putExtra("groupName", groupName);
+                context.startActivity(intent);
+                ((Activity)context).finish();
+            }
+        });
 
         return convertView;
     }

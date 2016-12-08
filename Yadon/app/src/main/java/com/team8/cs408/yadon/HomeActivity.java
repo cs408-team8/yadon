@@ -41,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
 
         ImageButton addGroupButton = (ImageButton) findViewById(R.id.addGroup);
 
-        adapter = new GroupListViewAdapter();
+        adapter = new GroupListViewAdapter(this);
         listView = (ListView) findViewById(R.id.listview_group);
         listView.setAdapter(adapter);
         updateGroupListView();

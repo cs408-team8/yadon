@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:weightSum="1">
@@ -8,7 +9,7 @@
 
 
     <TextView
-        android:layout_width="216dp"
+        android:layout_width="197dp"
         android:layout_height="match_parent"
         android:text="New Text"
         android:id="@+id/item_groupname"
@@ -16,7 +17,18 @@
         android:textColor="#000000"
         android:gravity="center"
         android:layout_marginLeft="20dp"
-        android:layout_weight="0.32" />
+        android:layout_weight="0.37" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/alarm_clock"
+        android:id="@+id/group_setalarm"
+        android:layout_marginLeft="10dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:background="@android:color/transparent"
+        android:scaleType ="centerInside" />
 
 
 </LinearLayout>
