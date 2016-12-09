@@ -88,14 +88,26 @@ public class DbOpenHelper {
 
     // for groups
     // Insert DB
-    public long insertColumn(String groupName, String name, String phoneNumber, int debt) {
+    public long insertColumn(String groupName, String name, String phoneNumber,
+                             int debt, int alarmStart, int alarmPeriod) {
         ContentValues values = new ContentValues();
         values.put(DataBases.CreateDB.GROUPNAME, groupName);
         values.put(DataBases.CreateDB.NAME, name);
         values.put(DataBases.CreateDB.PHONENUMBER, phoneNumber);
+        values.put(DataBases.CreateDB.ALARMSTART, alarmStart);
+        values.put(DataBases.CreateDB.ALARMPERIOD, alarmPeriod);
         values.put(DataBases.CreateDB.DEBT, debt);
         return mDB.insert(DataBases.CreateDB._TABLENAME, null, values);
     }
+
+    public int updateTheColumn_alarm(String groupName, int alarmStart, int alarmPeriod){
+        ContentValues values = new ContentValues();
+        values.put("alarmStart", alarmStart);
+        values.put("alarmPeriod", alarmPeriod);
+        return mDB.update(DataBases.CreateDB._TABLENAME, values, "groupName=" + "'" + groupName + "'", null);
+    }
+
+
 
     // Update DB
     public boolean updateColumn(long id, String groupName, String name, String phoneNumber, int debt) {
