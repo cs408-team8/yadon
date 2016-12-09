@@ -28,6 +28,7 @@
             android:windowSoftInputMode="adjustPan"></activity>
         <activity android:name=".AlarmActivity"></activity>
         <activity android:name=".AlarmMessageActivity"></activity>
+        <activity android:name=".UserSettingActivity"></activity>
         <receiver android:name="com.team8.cs408.yadonReceiver.AlarmReceiver"></receiver>
 
     </application>

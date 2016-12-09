@@ -16,7 +16,7 @@ public class UserSettingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usersetting);
-        getSupportActionBar().setTitle("그룹");
+        getSupportActionBar().setTitle("유저정보설정");
 
         ListView userset = (ListView)findViewById(R.id.usersetting_list);
         UserSettingViewAdapter adapter = new UserSettingViewAdapter();
