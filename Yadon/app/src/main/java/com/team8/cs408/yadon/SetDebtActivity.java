@@ -57,18 +57,8 @@ public class SetDebtActivity extends AppCompatActivity {
         confirm.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), GroupInfoActivity.class);
+                Intent intent = new Intent(view.getContext(), AlarmActivity.class);
                 intent.putExtra("groupName", groupName);
-                /*
-                adapter.notifyDataSetChanged();
-                for (int i = 0; i < listView.getChildCount(); i++) {
-                    EditText memberDebtEditText = (EditText) listView.getChildAt(i).findViewById(R.id.item_setmemberdebt);
-                    if (memberDebtEditText.getText().toString().length() > 0) {
-                        memberDebts.set(i, Integer.parseInt(memberDebtEditText.getText().toString()));
-                    } else {
-                        memberDebts.set(i, 0);
-                    }
-                }*/
                 updateGroupMemberListView();
                 startActivity(intent);
                 finish();                   // go to onActivityResult in HomeActivity.java
@@ -76,24 +66,22 @@ public class SetDebtActivity extends AppCompatActivity {
         });
 
 
-
         ImageButton dutch = (ImageButton) findViewById(R.id.setdebt_dutchpayButton);
-        dutch.setOnClickListener(new ImageButton.OnClickListener(){
+        dutch.setOnClickListener(new ImageButton.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 String s;
                 if (total.getText().toString().length() <= 0) {
                     s = "0";
-                }
-                else{
+                } else {
                     s = total.getText().toString();
                 }
-                for(int i=0;i<adapter.getCount();i++){
+                for (int i = 0; i < adapter.getCount(); i++) {
                     SetDebtMemberListViewItem item = (SetDebtMemberListViewItem) adapter.getItem(i);
                     MyApplication.mDbOpenHelper.updateTheColumn_debt(item.getGroupName(),
-                            item.getMemberName(), Integer.parseInt(s)/(adapter.getCount()+1));
-                    item.setMemberDebt(Integer.parseInt(s)/(adapter.getCount()+1));
+                            item.getMemberName(), Integer.parseInt(s) / (adapter.getCount() + 1));
+                    item.setMemberDebt(Integer.parseInt(s) / (adapter.getCount() + 1));
 
                 }
                 updateGroupMemberListView();
