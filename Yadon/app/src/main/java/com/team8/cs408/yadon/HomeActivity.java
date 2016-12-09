@@ -78,6 +78,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+
     //Update the adapter to show the current data.
     private void updateGroupListView() {
         adapter.clear();
@@ -96,15 +97,15 @@ public class HomeActivity extends AppCompatActivity {
                 groupMemberRepaidList.add(0);
                 indexCount++;
             }
-            if(mCursor.getInt(mCursor.getColumnIndex("debt")) <= 0){         //if debt >0, the person have not paid.
-                groupMemberRepaidList.set(indexCount-1,
-                        groupMemberRepaidList.get(indexCount-1) + 1);     //last index's value ++
+            if (mCursor.getInt(mCursor.getColumnIndex("debt")) <= 0) {         //if debt >0, the person have not paid.
+                groupMemberRepaidList.set(indexCount - 1,
+                        groupMemberRepaidList.get(indexCount - 1) + 1);     //last index's value ++
             }
-            groupMemberTotalList.set(indexCount-1,
-                    groupMemberTotalList.get(indexCount-1) + 1);
+            groupMemberTotalList.set(indexCount - 1,
+                    groupMemberTotalList.get(indexCount - 1) + 1);
 
         }
-        Log.d("indexCount ! ", ""+indexCount);
+        Log.d("indexCount ! ", "" + indexCount);
         for (int i = 0; i < groupNameList.size(); i++) {
             //adapter.addItem(ContextCompat.getDrawable(this, R.drawable.graph_sample), groupNameList.get(i));
             adapter.addItem(groupNameList.get(i), groupMemberTotalList.get(i), groupMemberRepaidList.get(i));
@@ -150,17 +151,24 @@ public class HomeActivity extends AppCompatActivity {
     /**
      * Show the contacts in the ListView. This is for initial permission for read_contacts.
      * Without this, we cannot do anything.
+     * <uses-permission android:name="android.permission.SEND_SMS" />
+     * <uses-permission android:name="android.permission.RECEIVE_SMS" />
+     * <uses-permission android:name="android.permission.READ_PHONE_STATE" />
      */
     private void showContacts() {
         // Check the SDK version and whether the permission is already granted or not.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS}, PERMISSIONS_REQUEST_READ_CONTACTS);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                && (checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED
+                || checkSelfPermission(Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED
+                || checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)) {
+            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS, Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE},
+                    PERMISSIONS_REQUEST_READ_CONTACTS);
             //After this point you wait for callback in onRequestPermissionsResult(int, String[], int[]) overriden method
         } else {
             // Android version is lesser than 6.0 or the permission is already granted.
         }
     }
-
+/*
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
                                            int[] grantResults) {
@@ -173,5 +181,5 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
     }
-
+*/
 }

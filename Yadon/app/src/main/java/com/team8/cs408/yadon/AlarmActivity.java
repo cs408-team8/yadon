@@ -20,6 +20,7 @@ public class AlarmActivity extends AppCompatActivity {
     Spinner periodAlarmSpinner;
     int alarmStart, alarmPeriod;
     private Cursor mCursor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,12 +31,11 @@ public class AlarmActivity extends AppCompatActivity {
         groupName = inputIntent.getStringExtra("groupName");
 
 
-
         mCursor = MyApplication.mDbOpenHelper.getGroupColumns(groupName);   //get columns whose groupName att is set to groupName
         mCursor.moveToNext();
         startPointAlarmPicker = (TimePicker) findViewById(R.id.start_alarm);
-        startPointAlarmPicker.setHour(mCursor.getInt(mCursor.getColumnIndex("alarmStart"))/60);
-        startPointAlarmPicker.setMinute(mCursor.getInt(mCursor.getColumnIndex("alarmStart"))%60);
+        startPointAlarmPicker.setHour(mCursor.getInt(mCursor.getColumnIndex("alarmStart")) / 60);
+        startPointAlarmPicker.setMinute(mCursor.getInt(mCursor.getColumnIndex("alarmStart")) % 60);
 
         periodAlarmSpinner = (Spinner) findViewById(R.id.period_alarm);
         ArrayAdapter periodAdapter = ArrayAdapter.createFromResource(
@@ -45,7 +45,7 @@ public class AlarmActivity extends AppCompatActivity {
         periodAlarmSpinner.setAdapter(periodAdapter);
 
         alarmPeriod = mCursor.getInt(mCursor.getColumnIndex("alarmPeriod"));
-        switch(alarmPeriod){
+        switch (alarmPeriod) {
             case 6:
                 periodAlarmSpinner.setSelection(0);
                 break;
@@ -67,7 +67,7 @@ public class AlarmActivity extends AppCompatActivity {
         periodAlarmSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch(parent.getItemAtPosition(position).toString()){
+                switch (parent.getItemAtPosition(position).toString()) {
                     case "6시간":
                         alarmPeriod = 6;
                         break;
@@ -93,10 +93,10 @@ public class AlarmActivity extends AppCompatActivity {
         });
 
         ImageButton confirmAlarm = (ImageButton) findViewById(R.id.confirm_alarm);
-        confirmAlarm.setOnClickListener(new ImageButton.OnClickListener(){
+        confirmAlarm.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), GroupInfoActivity.class);
+                Intent intent = new Intent(v.getContext(), AlarmMessageActivity.class);
                 intent.putExtra("groupName", groupName);
 
                 alarmStart = startPointAlarmPicker.getHour() * 60 + startPointAlarmPicker.getMinute();
@@ -108,6 +108,7 @@ public class AlarmActivity extends AppCompatActivity {
         });
 
     }
+
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(AlarmActivity.this, GroupInfoActivity.class);
