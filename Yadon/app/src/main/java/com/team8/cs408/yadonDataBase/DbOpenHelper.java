@@ -7,7 +7,6 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 public class DbOpenHelper {
     private static final String DATABASE_NAME = "accountbook.db";
@@ -25,11 +24,14 @@ public class DbOpenHelper {
         @Override
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(DataBases.CreateDB._CREATE);
+            db.execSQL(UserBasicInfoDB.CreateDB._CREATE);
         }
+
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL("DROP TABLE IF EXISTS " + DataBases.CreateDB._TABLENAME);
+            db.execSQL("DROP TABLE IF EXISTS " + UserBasicInfoDB.CreateDB._TABLENAME);
             onCreate(db);
         }
     }
@@ -48,16 +50,50 @@ public class DbOpenHelper {
         mDB.close();
     }
 
+
+
+
+
+
+
+    //for User Basic Info
+    public long insertColumnUserBasicInfo(String userName, String userAccount, Boolean alarmSetting, String messageSample) {
+        ContentValues values = new ContentValues();
+        values.put(UserBasicInfoDB.CreateDB.USERNAME, userName);
+        values.put(UserBasicInfoDB.CreateDB.USERACCOUNT, userAccount);
+        values.put(UserBasicInfoDB.CreateDB.ALARMSETTING, alarmSetting);
+        values.put(UserBasicInfoDB.CreateDB.MESSAGESAMPLE, messageSample);
+        return mDB.insert(UserBasicInfoDB.CreateDB._TABLENAME, null, values);
+    }
+
+    public boolean updateColumnUserBasicInfo(String userName, String userAccount, Boolean alarmSetting, String messageSample) {
+        ContentValues values = new ContentValues();
+        values.put(UserBasicInfoDB.CreateDB.USERNAME, userName);
+        values.put(UserBasicInfoDB.CreateDB.USERACCOUNT, userAccount);
+        values.put(UserBasicInfoDB.CreateDB.ALARMSETTING, alarmSetting);
+        values.put(UserBasicInfoDB.CreateDB.MESSAGESAMPLE, messageSample);
+        return mDB.update(UserBasicInfoDB.CreateDB._TABLENAME, values, null, null) > 0;
+    }
+
+    public void flushUserInfo(){
+        mDB.delete(UserBasicInfoDB.CreateDB._TABLENAME, null, null);
+    }
+
+
+
+
+
+
+
+
+    // for groups
     // Insert DB
-    public long insertColumn(String groupName, String name, String phoneNumber,
-                             int debt, int alarmStart, int alarmPeriod) {
+    public long insertColumn(String groupName, String name, String phoneNumber, int debt) {
         ContentValues values = new ContentValues();
         values.put(DataBases.CreateDB.GROUPNAME, groupName);
         values.put(DataBases.CreateDB.NAME, name);
         values.put(DataBases.CreateDB.PHONENUMBER, phoneNumber);
         values.put(DataBases.CreateDB.DEBT, debt);
-        values.put(DataBases.CreateDB.ALARMSTART, alarmStart);
-        values.put(DataBases.CreateDB.ALARMPERIOD, alarmPeriod);
         return mDB.insert(DataBases.CreateDB._TABLENAME, null, values);
     }
 
@@ -103,13 +139,6 @@ public class DbOpenHelper {
         ContentValues values = new ContentValues();
         values.put("debt", debt);
         return mDB.update(DataBases.CreateDB._TABLENAME, values, "groupName=" + "'" + groupName + "'" + " AND name=" + "'" + name + "'", null);
-    }
-
-    public int updateTheColumn_alarm(String groupName, int alarmStart, int alarmPeriod){
-        ContentValues values = new ContentValues();
-        values.put("alarmStart", alarmStart);
-        values.put("alarmPeriod", alarmPeriod);
-        return mDB.update(DataBases.CreateDB._TABLENAME, values, "groupName=" + "'" + groupName + "'", null);
     }
 
     // ID 컬럼 얻어 오기

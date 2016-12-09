@@ -1,6 +1,7 @@
 package com.team8.cs408.yadon;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +45,12 @@ public class GroupMemberListViewAdapter extends BaseAdapter {
         profileView.setImageDrawable(listViewItem.getProfile());
         memberNameView.setText(listViewItem.getMemberName());
         memberDebtView.setText(Integer.toString(listViewItem.getMemberDebt()));
-
+        if(listViewItem.getMemberDebt()==0/*change condition*/){
+            convertView.setBackgroundColor(Color.argb(50,0,0,255));
+        }
+        else{
+            convertView.setBackgroundColor(Color.argb(50,255,0,0));
+        }
         return convertView;
     }
 

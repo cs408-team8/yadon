@@ -118,18 +118,32 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         menu.add(0, 1, 1, "유저정보");
+        //Toast.makeText(this, item.getTitle() + " selected", Toast.LENGTH_SHORT).show();
+        // 이름 계좌 은행(콤보박스)
+
         menu.add(0, 2, 2, "설정");
+
+
+
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item != null) {
-            Toast.makeText(this, item.getTitle() + " selected", Toast.LENGTH_SHORT).show();
-            return true;
-        } else {
-            return false;
+        switch (item.getItemId()) {
+            case 1:
+                Toast.makeText(this, item.getTitle() + " selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case 2:
+                Toast.makeText(this, item.getTitle() + " selected", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomeActivity.this, UserSettingActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+            case 3:
+                return true;
         }
+        return false;
     }
 
 
