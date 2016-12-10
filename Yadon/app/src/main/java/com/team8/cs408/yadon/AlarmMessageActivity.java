@@ -46,12 +46,13 @@ public class AlarmMessageActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    private BroadcastReceiver sentBroadcastReceiver;
+    private BroadcastReceiver deliveredBroadcastReceiver;
 
     public void sendSMS(String memberPhone, String memberName, int memberDebt) {
         PendingIntent sentIntent = PendingIntent.getBroadcast(this, 0, new Intent("SMS_SENT_ACTION"), 0);
         PendingIntent deliveredIntent = PendingIntent.getBroadcast(this, 0, new Intent("SMS_DELIVERED_ACTION"), 0);
-
-        registerReceiver(new BroadcastReceiver() {
+        sentBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 switch (getResultCode()) {
@@ -77,8 +78,9 @@ public class AlarmMessageActivity extends AppCompatActivity {
                         break;
                 }
             }
-        }, new IntentFilter("SMS_SENT_ACTION"));
-        registerReceiver(new BroadcastReceiver() {
+        };
+
+        deliveredBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 switch (getResultCode()) {
@@ -92,10 +94,20 @@ public class AlarmMessageActivity extends AppCompatActivity {
                         break;
                 }
             }
-        }, new IntentFilter("SMS_DELIVERED_ACTION"));
+        };
+
+        registerReceiver(sentBroadcastReceiver, new IntentFilter("SMS_SENT_ACTION"));
+        registerReceiver(deliveredBroadcastReceiver, new IntentFilter("SMS_DELIVERED_ACTION"));
 
         SmsManager mSmsManager = SmsManager.getDefault();
         mSmsManager.sendTextMessage(memberPhone, null, memberName + "님, 아직 " + memberDebt + "원 갚지 않으셨습니다.",
                 sentIntent, deliveredIntent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(sentBroadcastReceiver);
+        unregisterReceiver(deliveredBroadcastReceiver);
     }
 }
