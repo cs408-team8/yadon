@@ -7,6 +7,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -61,6 +62,16 @@ public class GroupInfoActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), SetDebtActivity.class);
                 intent.putExtra("groupName", groupName);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(view.getContext(), SetDebtActivity.class);
+                intent.putExtra("groupName", groupName);  //group name is needed for groupinfoactivity.
                 startActivity(intent);
                 finish();
             }

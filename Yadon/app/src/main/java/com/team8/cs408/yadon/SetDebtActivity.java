@@ -118,6 +118,7 @@ public class SetDebtActivity extends AppCompatActivity {
             case android.R.id.home:
                 Intent intent = new Intent(SetDebtActivity.this, GroupInfoActivity.class);
                 intent.putExtra("groupName", groupName);
+                MyApplication.mDbOpenHelper.updateColumns_groupState_debtSetup(groupName, 1);
                 startActivity(intent);
                 finish();
                 return true;
@@ -130,6 +131,7 @@ public class SetDebtActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(SetDebtActivity.this, GroupInfoActivity.class);
         intent.putExtra("groupName", groupName);
+        MyApplication.mDbOpenHelper.updateColumns_groupState_debtSetup(groupName, 1);
         startActivity(intent);
         finish();
     }

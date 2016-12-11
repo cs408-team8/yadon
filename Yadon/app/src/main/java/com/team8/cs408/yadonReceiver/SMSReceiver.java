@@ -94,9 +94,9 @@ public class SMSReceiver extends BroadcastReceiver {
                 Log.e("SMSReceiver : ", "Wrong Format");
             }
 
-            Intent newintent = new Intent(context, LoadingActivity.class);
-            newintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(newintent);
+            //Intent newintent = new Intent(context, LoadingActivity.class);
+            //newintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            //context.startActivity(newintent);
         }
     }
 

@@ -111,6 +111,7 @@ public class HomeActivity extends AppCompatActivity {
 
         }
         for (int i = 0; i < groupNameList.size(); i++) {
+            Log.d("total repaid : ", "total : "+groupMemberTotalList.get(i)+", repaid : "+groupMemberRepaidList.get(i));
             adapter.addItem(groupNameList.get(i), groupMemberTotalList.get(i), groupMemberRepaidList.get(i));
         }
         adapter.notifyDataSetChanged();
@@ -123,13 +124,13 @@ public class HomeActivity extends AppCompatActivity {
         ArrayList<String> groupNameList = new ArrayList<String>();
         int tempDebt = 0;
         while (mCursor.moveToNext()) {
-            /*
+
             Log.d("In HomeActivity : ",
                     " groupName : " + mCursor.getString(mCursor.getColumnIndex("groupName")) +
-                            " name : " + mCursor.getString(mCursor.getColumnIndex("name")) +
-                            " initDebt : " + mCursor.getString(mCursor.getColumnIndex("initDebt")) +
-                            " debt : " + mCursor.getString(mCursor.getColumnIndex("debt")));
-                            */
+                            " debtSetup : " + mCursor.getString(mCursor.getColumnIndex("debtSetup")) +
+                            " collectionCompleted : " + mCursor.getString(mCursor.getColumnIndex("collectionCompleted")) +
+                            " name : " + mCursor.getString(mCursor.getColumnIndex("name")));
+
             tempGroupName = mCursor.getString(mCursor.getColumnIndex("groupName"));
             if (!groupNameList.contains(tempGroupName)) {
                 groupNameList.add(tempGroupName);
