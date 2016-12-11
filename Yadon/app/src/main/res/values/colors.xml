@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#ffffff</color>
+    <color name="black">#000000</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="backGround">#ccddfd</color>
+    <color name="backGround">#ffffff</color>
+    <color name="lightpink">#ff9ca8</color>
+    <color name="pink">#fa7089</color>
+    <color name="lemon">#fff5d1</color>
+    <color name="lightorange">#ffcb97</color>
+    <color name="lightgreen">#c4d18b</color>
+
 </resources>

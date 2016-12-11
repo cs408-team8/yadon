@@ -16,7 +16,9 @@
     <ListView
         android:id="@+id/listview_group"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        />
+
     <ImageButton
         android:layout_width="80dp"
         android:layout_height="80dp"
