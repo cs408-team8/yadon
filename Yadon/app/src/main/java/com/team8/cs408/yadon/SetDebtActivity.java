@@ -57,10 +57,10 @@ public class SetDebtActivity extends AppCompatActivity {
         confirm.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyApplication.mDbOpenHelper.updateColumns_groupState_debtSetup(groupName, 1);
                 Intent intent = new Intent(view.getContext(), AlarmActivity.class);
                 intent.putExtra("groupName", groupName);
                 updateGroupMemberListView();
+                MyApplication.mDbOpenHelper.updateColumns_groupState_debtSetup(groupName, 1);
                 startActivity(intent);
                 finish();                   // go to onActivityResult in HomeActivity.java
             }
@@ -98,6 +98,12 @@ public class SetDebtActivity extends AppCompatActivity {
         while (mCursor.moveToNext()) {
             memberNames.add(mCursor.getString(mCursor.getColumnIndex("name")));
             memberDebts.add(mCursor.getInt(mCursor.getColumnIndex("debt")));
+            if (mCursor.getInt(mCursor.getColumnIndex("debtSetup")) == 0) {
+                MyApplication.mDbOpenHelper.updateTheColumn_initDebt(groupName,
+                        memberNames.get(memberNames.size() - 1),
+                        memberDebts.get(memberDebts.size() - 1)
+                );
+            }
         }
         for (int i = 0; i < memberNames.size(); i++) {
             adapter.addItem(groupName, memberNames.get(i), memberDebts.get(i));

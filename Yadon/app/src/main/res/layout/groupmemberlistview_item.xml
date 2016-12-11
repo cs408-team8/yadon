@@ -6,20 +6,12 @@
     android:weightSum="1"
     android:background="#999999">
 
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="match_parent"
-        android:scaleType ="centerInside"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/item_confirmimage"
-        android:layout_marginLeft="20dp" />
-
-
     <TextView
         android:layout_width="120dp"
         android:layout_height="match_parent"
         android:text="New Text"
         android:id="@+id/item_membername"
+        android:layout_marginStart="35dp"
         android:textSize="15dp"
         android:textColor="#ffffff"
         android:gravity="center_vertical"

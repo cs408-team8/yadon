@@ -122,6 +122,7 @@ public class MakeGroupActivity extends AppCompatActivity {
                 for (int i = 0; i < checkedNames.size(); i++) {
                     MyApplication.mDbOpenHelper.insertColumn(groupName, checkedNames.get(i), checkedPhones.get(i),
                             0,                      //debt
+                            0,                      //initDebt
                             12 * 60, 6,             //alarminfo
                             groupCreationDate,      //creationDate
                             0,                      //debt have been set?
@@ -152,10 +153,20 @@ public class MakeGroupActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(android.view.MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+                Intent intent = new Intent(MakeGroupActivity.this, HomeActivity.class);
+                startActivity(intent);
                 finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    //Phone back button
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(MakeGroupActivity.this, HomeActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }

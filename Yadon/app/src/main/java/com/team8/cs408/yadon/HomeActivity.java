@@ -61,7 +61,6 @@ public class HomeActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 GroupListViewItem item = (GroupListViewItem) parent.getItemAtPosition(position);
                 Intent intent = new Intent(view.getContext(), GroupInfoActivity.class);
-
                 intent.putExtra("groupName", item.getGroupName());  //group name is needed for groupinfoactivity.
 
                 startActivity(intent);
@@ -111,28 +110,36 @@ public class HomeActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
         mCursor.close();
     }
-    public void updateDBGroupState(){
+
+    public void updateDBGroupState() {
         mCursor = MyApplication.mDbOpenHelper.getAllColumns();
         String tempGroupName = "";
         ArrayList<String> groupNameList = new ArrayList<String>();
         int tempDebt = 0;
-        while(mCursor.moveToNext()) {
+        while (mCursor.moveToNext()) {
+            /*
+            Log.d("In HomeActivity : ",
+                    " groupName : " + mCursor.getString(mCursor.getColumnIndex("groupName")) +
+                            " name : " + mCursor.getString(mCursor.getColumnIndex("name")) +
+                            " initDebt : " + mCursor.getString(mCursor.getColumnIndex("initDebt")) +
+                            " debt : " + mCursor.getString(mCursor.getColumnIndex("debt")));
+                            */
             tempGroupName = mCursor.getString(mCursor.getColumnIndex("groupName"));
             if (!groupNameList.contains(tempGroupName)) {
                 groupNameList.add(tempGroupName);
             }
         }
         mCursor.close();
-        for(int i=0;i<groupNameList.size();i++){
-            int groupTotalDebt= 0;
+        for (int i = 0; i < groupNameList.size(); i++) {
+            int groupTotalDebt = 0;
             int debtSetup = 0;
             mCursor = MyApplication.mDbOpenHelper.getGroupColumns(groupNameList.get(i));
-            while(mCursor.moveToNext()){
+            while (mCursor.moveToNext()) {
                 groupTotalDebt += mCursor.getInt(mCursor.getColumnIndex("debt"));
                 debtSetup = mCursor.getInt(mCursor.getColumnIndex("debtSetup"));
             }
             mCursor.close();
-            if(debtSetup != 0 && groupTotalDebt == 0){
+            if (debtSetup != 0 && groupTotalDebt == 0) {
                 MyApplication.mDbOpenHelper.updateColumns_groupState_collectionCompleted(groupNameList.get(i), 1);  // completed
             }
         }
@@ -147,7 +154,6 @@ public class HomeActivity extends AppCompatActivity {
         // 이름 계좌 은행(콤보박스)
 
         menu.add(0, 2, 2, "설정");
-
 
 
         return true;

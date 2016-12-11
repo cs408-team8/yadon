@@ -78,7 +78,7 @@ public class DbOpenHelper {
     // for groups
     // Insert DB
     public long insertColumn(String groupName, String name, String phoneNumber,
-                             int debt, int alarmStart, int alarmPeriod, String creationDate,
+                             int debt, int initDebt, int alarmStart, int alarmPeriod, String creationDate,
                              int debtSetup, int collectionCompleted) {
         ContentValues values = new ContentValues();
         values.put(DataBases.CreateDB.GROUPNAME, groupName);
@@ -89,6 +89,7 @@ public class DbOpenHelper {
         values.put(DataBases.CreateDB.CREATIONDATE, creationDate);
         values.put(DataBases.CreateDB.DEBTSETUP, debtSetup);
         values.put(DataBases.CreateDB.COLLECTIONCOMPLETED, collectionCompleted);
+        values.put(DataBases.CreateDB.INITDEBT, initDebt);
         values.put(DataBases.CreateDB.DEBT, debt);
         return mDB.insert(DataBases.CreateDB._TABLENAME, null, values);
     }
@@ -144,6 +145,12 @@ public class DbOpenHelper {
     public int updateTheColumn_debt(String groupName, String name, int debt) {
         ContentValues values = new ContentValues();
         values.put("debt", debt);
+        return mDB.update(DataBases.CreateDB._TABLENAME, values, "groupName=" + "'" + groupName + "'" + " AND name=" + "'" + name + "'", null);
+    }
+
+    public int updateTheColumn_initDebt(String groupName, String name, int initDebt) {
+        ContentValues values = new ContentValues();
+        values.put("initDebt", initDebt);
         return mDB.update(DataBases.CreateDB._TABLENAME, values, "groupName=" + "'" + groupName + "'" + " AND name=" + "'" + name + "'", null);
     }
 

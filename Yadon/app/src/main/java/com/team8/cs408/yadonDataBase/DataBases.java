@@ -10,6 +10,7 @@ public final class DataBases {
         public static final String GROUPNAME = "groupName";
         public static final String NAME = "name";
         public static final String PHONENUMBER = "phoneNumber";
+        public static final String INITDEBT = "initDebt";
         public static final String DEBT = "debt";
         public static final String ALARMSTART = "alarmStart";
         public static final String ALARMPERIOD = "alarmPeriod";
@@ -28,6 +29,7 @@ public final class DataBases {
                         + CREATIONDATE + " text not null , "
                         + DEBTSETUP + " Integer not null , "
                         + COLLECTIONCOMPLETED + " Integer not null , "
+                        + INITDEBT + " Integer not null , "
                         + DEBT + " Integer not null );";
     }
 }
