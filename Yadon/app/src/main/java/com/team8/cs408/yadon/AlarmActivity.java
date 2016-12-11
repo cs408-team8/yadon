@@ -1,5 +1,7 @@
 package com.team8.cs408.yadon;
 
+import android.app.AlarmManager;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -13,6 +15,8 @@ import android.widget.TimePicker;
 
 import com.team8.cs408.yadonDataBase.MyApplication;
 
+import java.util.ArrayList;
+
 public class AlarmActivity extends AppCompatActivity {
     Intent inputIntent;
     String groupName;
@@ -20,6 +24,7 @@ public class AlarmActivity extends AppCompatActivity {
     Spinner periodAlarmSpinner;
     int alarmStart, alarmPeriod;
     private Cursor mCursor;
+    public ArrayList<AlarmManager> AlarmList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,7 @@ public class AlarmActivity extends AppCompatActivity {
         inputIntent = getIntent();
         groupName = inputIntent.getStringExtra("groupName");
 
+        AlarmList = new ArrayList<AlarmManager>();
 
         mCursor = MyApplication.mDbOpenHelper.getGroupColumns(groupName);   //get columns whose groupName att is set to groupName
         mCursor.moveToNext();
@@ -102,6 +108,23 @@ public class AlarmActivity extends AppCompatActivity {
                 alarmStart = startPointAlarmPicker.getHour() * 60 + startPointAlarmPicker.getMinute();
 
                 MyApplication.mDbOpenHelper.updateTheColumn_alarm(groupName, alarmStart, alarmPeriod);
+
+                AlarmList.clear();
+                mCursor = MyApplication.mDbOpenHelper.getAllColumns();
+                ArrayList<String> groupNameList = new ArrayList<String>();
+                String tempGroupName = "";
+                while (mCursor.moveToNext()) {
+                    tempGroupName = mCursor.getString(mCursor.getColumnIndex("groupName"));
+                    if (!groupNameList.contains(tempGroupName)) {
+                        groupNameList.add(tempGroupName);
+                    }
+                }
+                mCursor.close();
+                AlarmManager tempAlarmManager = (AlarmManager)v.getContext().getSystemService(Context.ALARM_SERVICE);
+                for (int i = 0; i < groupNameList.size(); i++) {
+
+                }
+
                 startActivity(intent);
                 finish();
             }
