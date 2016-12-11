@@ -70,9 +70,6 @@ public class AlarmActivity extends AppCompatActivity {
             case 48*60*60:
                 periodAlarmSpinner.setSelection(3);
                 break;
-            case 5:
-                periodAlarmSpinner.setSelection(4);
-                break;
             default:
                 periodAlarmSpinner.setSelection(1);
                 break;
@@ -83,9 +80,6 @@ public class AlarmActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (parent.getItemAtPosition(position).toString()) {
-                    case "5초":
-                        alarmPeriod = 5;
-                        break;
                     case "6시간":
                         alarmPeriod = 6*60*60;
                         break;
