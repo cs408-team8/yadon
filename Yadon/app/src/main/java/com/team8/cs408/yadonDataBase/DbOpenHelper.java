@@ -51,11 +51,6 @@ public class DbOpenHelper {
     }
 
 
-
-
-
-
-
     //for User Basic Info
     public long insertColumnUserBasicInfo(String userName, String userAccount, Boolean alarmSetting, String messageSample) {
         ContentValues values = new ContentValues();
@@ -75,38 +70,35 @@ public class DbOpenHelper {
         return mDB.update(UserBasicInfoDB.CreateDB._TABLENAME, values, null, null) > 0;
     }
 
-    public void flushUserInfo(){
+    public void flushUserInfo() {
         mDB.delete(UserBasicInfoDB.CreateDB._TABLENAME, null, null);
     }
-
-
-
-
-
-
 
 
     // for groups
     // Insert DB
     public long insertColumn(String groupName, String name, String phoneNumber,
-                             int debt, int alarmStart, int alarmPeriod) {
+                             int debt, int alarmStart, int alarmPeriod, String creationDate,
+                             int debtSetup, int collectionCompleted) {
         ContentValues values = new ContentValues();
         values.put(DataBases.CreateDB.GROUPNAME, groupName);
         values.put(DataBases.CreateDB.NAME, name);
         values.put(DataBases.CreateDB.PHONENUMBER, phoneNumber);
         values.put(DataBases.CreateDB.ALARMSTART, alarmStart);
         values.put(DataBases.CreateDB.ALARMPERIOD, alarmPeriod);
+        values.put(DataBases.CreateDB.CREATIONDATE, creationDate);
+        values.put(DataBases.CreateDB.DEBTSETUP, debtSetup);
+        values.put(DataBases.CreateDB.COLLECTIONCOMPLETED, collectionCompleted);
         values.put(DataBases.CreateDB.DEBT, debt);
         return mDB.insert(DataBases.CreateDB._TABLENAME, null, values);
     }
 
-    public int updateTheColumn_alarm(String groupName, int alarmStart, int alarmPeriod){
+    public int updateTheColumn_alarm(String groupName, int alarmStart, int alarmPeriod) {
         ContentValues values = new ContentValues();
         values.put("alarmStart", alarmStart);
         values.put("alarmPeriod", alarmPeriod);
         return mDB.update(DataBases.CreateDB._TABLENAME, values, "groupName=" + "'" + groupName + "'", null);
     }
-
 
 
     // Update DB
@@ -135,11 +127,13 @@ public class DbOpenHelper {
 
     // Select All
     public Cursor getAllColumns() {
-        return mDB.query(DataBases.CreateDB._TABLENAME, null, null, null, null, null, null);
+        return mDB.query(DataBases.CreateDB._TABLENAME, null, null, null, null, null,
+                "debtSetup ASC, collectionCompleted ASC, creationDate ASC, groupName ASC");
     }
 
     public Cursor getGroupColumns(String groupName) {
-        return mDB.query(DataBases.CreateDB._TABLENAME, null, "groupName=" + "'" + groupName + "'", null, null, null, null);
+        return mDB.query(DataBases.CreateDB._TABLENAME, null, "groupName=" + "'" + groupName + "'", null, null, null,
+                "debt DESC");
     }
 
     public Cursor getTheColumn(String groupName, String name) {
@@ -151,6 +145,18 @@ public class DbOpenHelper {
         ContentValues values = new ContentValues();
         values.put("debt", debt);
         return mDB.update(DataBases.CreateDB._TABLENAME, values, "groupName=" + "'" + groupName + "'" + " AND name=" + "'" + name + "'", null);
+    }
+
+    public int updateColumns_groupState_debtSetup(String groupName, int debtSetup) {
+        ContentValues values = new ContentValues();
+        values.put("debtSetup", debtSetup);
+        return mDB.update(DataBases.CreateDB._TABLENAME, values, "groupName=" + "'" + groupName + "'", null);
+    }
+
+    public int updateColumns_groupState_collectionCompleted(String groupName, int collectionCompleted) {
+        ContentValues values = new ContentValues();
+        values.put("collectionCompleted", collectionCompleted);
+        return mDB.update(DataBases.CreateDB._TABLENAME, values, "groupName=" + "'" + groupName + "'", null);
     }
 
     // ID 컬럼 얻어 오기

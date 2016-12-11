@@ -44,6 +44,7 @@ public class HomeActivity extends AppCompatActivity {
         adapter = new GroupListViewAdapter(this);
         listView = (ListView) findViewById(R.id.listview_group);
         listView.setAdapter(adapter);
+        updateDBGroupState();
         updateGroupListView();
         addGroupButton.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
@@ -83,7 +84,6 @@ public class HomeActivity extends AppCompatActivity {
     private void updateGroupListView() {
         adapter.clear();
         mCursor = MyApplication.mDbOpenHelper.getAllColumns();
-        Log.d("number of columns : ", "" + mCursor.getCount());
         int indexCount = 0;
         ArrayList<String> groupNameList = new ArrayList<String>();
         ArrayList<Integer> groupMemberTotalList = new ArrayList<Integer>();         // number of the group members
@@ -105,13 +105,37 @@ public class HomeActivity extends AppCompatActivity {
                     groupMemberTotalList.get(indexCount - 1) + 1);
 
         }
-        Log.d("indexCount ! ", "" + indexCount);
         for (int i = 0; i < groupNameList.size(); i++) {
-            //adapter.addItem(ContextCompat.getDrawable(this, R.drawable.graph_sample), groupNameList.get(i));
             adapter.addItem(groupNameList.get(i), groupMemberTotalList.get(i), groupMemberRepaidList.get(i));
         }
         adapter.notifyDataSetChanged();
         mCursor.close();
+    }
+    public void updateDBGroupState(){
+        mCursor = MyApplication.mDbOpenHelper.getAllColumns();
+        String tempGroupName = "";
+        ArrayList<String> groupNameList = new ArrayList<String>();
+        int tempDebt = 0;
+        while(mCursor.moveToNext()) {
+            tempGroupName = mCursor.getString(mCursor.getColumnIndex("groupName"));
+            if (!groupNameList.contains(tempGroupName)) {
+                groupNameList.add(tempGroupName);
+            }
+        }
+        mCursor.close();
+        for(int i=0;i<groupNameList.size();i++){
+            int groupTotalDebt= 0;
+            int debtSetup = 0;
+            mCursor = MyApplication.mDbOpenHelper.getGroupColumns(groupNameList.get(i));
+            while(mCursor.moveToNext()){
+                groupTotalDebt += mCursor.getInt(mCursor.getColumnIndex("debt"));
+                debtSetup = mCursor.getInt(mCursor.getColumnIndex("debtSetup"));
+            }
+            mCursor.close();
+            if(debtSetup != 0 && groupTotalDebt == 0){
+                MyApplication.mDbOpenHelper.updateColumns_groupState_collectionCompleted(groupNameList.get(i), 1);  // completed
+            }
+        }
     }
 
     //Group member is selected. Should handle the information.
@@ -159,9 +183,8 @@ public class HomeActivity extends AppCompatActivity {
         // Check the SDK version and whether the permission is already granted or not.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
                 && (checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED
-                || checkSelfPermission(Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED
-                || checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)) {
-            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS, Manifest.permission.SEND_SMS, Manifest.permission.READ_PHONE_STATE},
+                || checkSelfPermission(Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED)) {
+            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS, Manifest.permission.SEND_SMS},
                     PERMISSIONS_REQUEST_READ_CONTACTS);
             //After this point you wait for callback in onRequestPermissionsResult(int, String[], int[]) overriden method
         } else {

@@ -112,14 +112,20 @@ public class MakeGroupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String groupName = "";
+                String groupCreationDate = "";
                 // if there is no input text, the group name sets to current time.
+                SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd", Locale.KOREA);
+                groupCreationDate = df.format(new Date());
                 if ((groupName = groupEditText.getText().toString()).length() <= 0) {
-                    SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd-HH:mm", Locale.KOREA);
-                    groupName = df.format(new Date());
+                    groupName = groupCreationDate;
                 }
                 for (int i = 0; i < checkedNames.size(); i++) {
                     MyApplication.mDbOpenHelper.insertColumn(groupName, checkedNames.get(i), checkedPhones.get(i),
-                            0, 12 * 60, 6);
+                            0,                      //debt
+                            12 * 60, 6,             //alarminfo
+                            groupCreationDate,      //creationDate
+                            0,                      //debt have been set?
+                            0);                     //collection completed?
                 }
                 Intent intent = new Intent(listView.getContext(), HomeActivity.class);
                 startActivity(intent);      // go to onActivityResult in HomeActivity.java

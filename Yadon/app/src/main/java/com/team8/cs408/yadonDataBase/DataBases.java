@@ -13,6 +13,9 @@ public final class DataBases {
         public static final String DEBT = "debt";
         public static final String ALARMSTART = "alarmStart";
         public static final String ALARMPERIOD = "alarmPeriod";
+        public static final String CREATIONDATE = "creationDate";
+        public static final String DEBTSETUP = "debtSetup";
+        public static final String COLLECTIONCOMPLETED = "collectionCompleted";
         public static final String _TABLENAME = "acountBook";
         public static final String _CREATE =
                 "create table " + _TABLENAME + "("
@@ -22,6 +25,9 @@ public final class DataBases {
                         + PHONENUMBER + " text not null , "
                         + ALARMSTART + " Integer not null , "
                         + ALARMPERIOD + " Integer not null , "
+                        + CREATIONDATE + " text not null , "
+                        + DEBTSETUP + " Integer not null , "
+                        + COLLECTIONCOMPLETED + " Integer not null , "
                         + DEBT + " Integer not null );";
     }
 }

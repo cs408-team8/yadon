@@ -53,6 +53,8 @@ public class GraphView extends View {
             RectF rectF = new RectF(50, 70, 250, 270);
             if (totalMember > 0) {
                 canvas.drawArc(rectF, -90f, 360f * repaidMember / totalMember, false, paint);
+                paint.setColor(Color.WHITE);
+                canvas.drawArc(rectF, 360f * repaidMember / totalMember - 90f, 360f - 360f * repaidMember / totalMember, false, paint);
             }
         } else {           //bar graph
             paint.setColor(Color.rgb(0, 0, 0));

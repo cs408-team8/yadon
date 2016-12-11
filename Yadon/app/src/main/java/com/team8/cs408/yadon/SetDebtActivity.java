@@ -57,6 +57,7 @@ public class SetDebtActivity extends AppCompatActivity {
         confirm.setOnClickListener(new ImageButton.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MyApplication.mDbOpenHelper.updateColumns_groupState_debtSetup(groupName, 1);
                 Intent intent = new Intent(view.getContext(), AlarmActivity.class);
                 intent.putExtra("groupName", groupName);
                 updateGroupMemberListView();
