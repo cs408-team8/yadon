@@ -15,7 +15,7 @@
 
     <ImageButton
         android:layout_width="100dp"
-        app:srcCompat="@drawable/button_sample"
+        app:srcCompat="@drawable/dutchpaybutton"
         android:id="@+id/setdebt_dutchpayButton"
         android:scaleType="centerInside"
         android:background="@android:color/transparent"
@@ -29,7 +29,7 @@
 
     <ImageButton
         android:layout_width="100dp"
-        app:srcCompat="@drawable/button_sample"
+        app:srcCompat="@drawable/setdebtbutton"
         android:id="@+id/setdebt_confirmButton"
         android:scaleType="centerInside"
         android:background="@android:color/transparent"

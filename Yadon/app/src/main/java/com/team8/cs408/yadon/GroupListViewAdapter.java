@@ -55,10 +55,10 @@ public class GroupListViewAdapter extends BaseAdapter {
 
         GroupListViewItem listViewItem = groupInfoListViewItem_List.get(position);
         if(listViewItem.getTotal()==listViewItem.getRepaid()){
-            convertView.setBackgroundColor(Color.argb(50,0,0,255));
+            convertView.setBackgroundColor(Color.argb(80,0,0,0));
         }
         else{
-            convertView.setBackgroundColor(Color.argb(50,255,0,0));
+            convertView.setBackgroundColor(Color.argb(50,0,0,255));
         }
         groupName =listViewItem.getGroupName();
         groupNameView.setText(groupName);

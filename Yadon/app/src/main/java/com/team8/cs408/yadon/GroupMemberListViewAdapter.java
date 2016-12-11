@@ -46,10 +46,10 @@ public class GroupMemberListViewAdapter extends BaseAdapter {
         memberNameView.setText(listViewItem.getMemberName());
         memberDebtView.setText(Integer.toString(listViewItem.getMemberDebt()));
         if(listViewItem.getMemberDebt()==0/*change condition*/){
-            convertView.setBackgroundColor(Color.argb(50,0,0,255));
+            convertView.setBackgroundColor(Color.argb(80,0,0,0));
         }
         else{
-            convertView.setBackgroundColor(Color.argb(50,255,0,0));
+            convertView.setBackgroundColor(Color.argb(50,0,0,255));
         }
         return convertView;
     }

@@ -47,35 +47,39 @@ public class GraphView extends View {
             canvas.drawText(repaidMember + " / " + totalMember, 100, 185, paint);
 
             paint.setStyle(Paint.Style.STROKE);
-            paint.setColor(Color.BLUE);
+            paint.setColor(Color.argb(100,0,0,0));
             paint.setStrokeWidth(10);
 
             RectF rectF = new RectF(50, 70, 250, 270);
             if (totalMember > 0) {
                 canvas.drawArc(rectF, -90f, 360f * repaidMember / totalMember, false, paint);
-                paint.setColor(Color.WHITE);
+                paint.setColor(Color.argb(50,153,153,153));
                 canvas.drawArc(rectF, 360f * repaidMember / totalMember - 90f, 360f - 360f * repaidMember / totalMember, false, paint);
             }
         } else {           //bar graph
-            paint.setColor(Color.rgb(0, 0, 0));
+            paint.setColor(Color.argb(50,0,0,255));
             paint.setStrokeWidth(10);
 
             //canvas.drawRect(150, 120, 1250, 250, paint);
             if (totalMember > 0) {
                 int subBarInterval = 20;
                 int subBarLength = (1130 - subBarInterval * (totalMember - 1)) / totalMember;
-                paint.setStyle(Paint.Style.STROKE);
-                for (int i = 0; i < totalMember; i++) {
+                //paint.setStyle(Paint.Style.STROKE);
+                for (int i = 0; i < totalMember-repaidMember; i++) {
                     canvas.drawRect(150 + i * (subBarLength + subBarInterval), 120,
                             150 + i * (subBarLength + subBarInterval) + subBarLength, 250, paint);
                 }
                 paint.setStyle(Paint.Style.FILL);
-                paint.setColor(Color.rgb(50, 50, 255));
+                paint.setColor(Color.argb(80,0,0,0));
                 for (int i = totalMember-repaidMember; i < totalMember; i++) {
                     canvas.drawRect(150 + i * (subBarLength + subBarInterval), 120,
                             150 + i * (subBarLength + subBarInterval) + subBarLength, 250, paint);
                 }
             }
+
+
+
+
 
         }
     }
