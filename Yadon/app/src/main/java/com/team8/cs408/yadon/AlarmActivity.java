@@ -1,6 +1,7 @@
 package com.team8.cs408.yadon;
 
 import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -14,8 +15,11 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 
 import com.team8.cs408.yadonDataBase.MyApplication;
+import com.team8.cs408.yadonReceiver.AlarmReceiver;
 
 import java.util.ArrayList;
+
+import static com.kakao.auth.StringSet.file;
 
 public class AlarmActivity extends AppCompatActivity {
     Intent inputIntent;
@@ -52,17 +56,20 @@ public class AlarmActivity extends AppCompatActivity {
 
         alarmPeriod = mCursor.getInt(mCursor.getColumnIndex("alarmPeriod"));
         switch (alarmPeriod) {
-            case 6:
+            case 6*60*60:
                 periodAlarmSpinner.setSelection(0);
                 break;
-            case 12:
+            case 12*60*60:
                 periodAlarmSpinner.setSelection(1);
                 break;
-            case 24:
+            case 24*60*60:
                 periodAlarmSpinner.setSelection(2);
                 break;
-            case 48:
+            case 48*60*60:
                 periodAlarmSpinner.setSelection(3);
+                break;
+            case 5:
+                periodAlarmSpinner.setSelection(4);
                 break;
             default:
                 periodAlarmSpinner.setSelection(1);
@@ -74,27 +81,30 @@ public class AlarmActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (parent.getItemAtPosition(position).toString()) {
+                    case "5초":
+                        alarmPeriod = 5;
+                        break;
                     case "6시간":
-                        alarmPeriod = 6;
+                        alarmPeriod = 6*60*60;
                         break;
                     case "12시간":
-                        alarmPeriod = 12;
+                        alarmPeriod = 12*60*60;
                         break;
                     case "1일":
-                        alarmPeriod = 24;
+                        alarmPeriod = 24*60*60;
                         break;
                     case "2일":
-                        alarmPeriod = 48;
+                        alarmPeriod = 48*60*60;
                         break;
                     default:
-                        alarmPeriod = 24;
+                        alarmPeriod = 24*60*60;
                         break;
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                alarmPeriod = 24;
+                alarmPeriod = 24*60*60;
             }
         });
 
@@ -122,7 +132,25 @@ public class AlarmActivity extends AppCompatActivity {
                 mCursor.close();
                 AlarmManager tempAlarmManager = (AlarmManager)v.getContext().getSystemService(Context.ALARM_SERVICE);
                 for (int i = 0; i < groupNameList.size(); i++) {
+                    mCursor = MyApplication.mDbOpenHelper.getGroupColumns(groupNameList.get(i));
+                    Intent alarmintent = new Intent(v.getContext(), AlarmReceiver.class);
+                    alarmintent.putExtra("file", file.toString());
+                    //intent.putExtra("groupName", groupName);
+                    PendingIntent pIntent = PendingIntent.getBroadcast(v.getContext(), file.hashCode(), alarmintent, PendingIntent.FLAG_UPDATE_CURRENT);
 
+                    //Calendar cal = Calendar.getInstance();
+                    //cal.set(Calendar.SECOND, cal.get(Calendar.SECOND) + 10); // 10초 뒤
+
+                    //long oneday = 24 * 60 * 60 * 1000;// 24시간
+
+                    // 10초 뒤에 시작해서 매일 같은 시간에 반복하기
+                    /*
+                    tempAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+                            mCursor.getInt(mCursor.getColumnIndex("alarmStart"))*60*1000,
+                            mCursor.getInt(mCursor.getColumnIndex("alarmPeriod"))*1000,
+                            pIntent);
+                    mCursor.close();
+                    */
                 }
 
                 startActivity(intent);

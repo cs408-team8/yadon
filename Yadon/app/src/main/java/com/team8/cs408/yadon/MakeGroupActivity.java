@@ -123,7 +123,7 @@ public class MakeGroupActivity extends AppCompatActivity {
                     MyApplication.mDbOpenHelper.insertColumn(groupName, checkedNames.get(i), checkedPhones.get(i),
                             0,                      //debt
                             0,                      //initDebt
-                            12 * 60, 6,             //alarminfo
+                            12 * 60, 6*60*60,             //alarminfo
                             groupCreationDate,      //creationDate
                             0,                      //debt have been set?
                             0);                     //collection completed?
