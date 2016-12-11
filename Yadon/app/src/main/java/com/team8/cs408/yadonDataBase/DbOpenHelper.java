@@ -57,22 +57,41 @@ public class DbOpenHelper {
 
 
     //for User Basic Info
-    public long insertColumnUserBasicInfo(String userName, String userAccount, Boolean alarmSetting, String messageSample) {
+    public long insertColumnUserBasicInfo(String userName, String userBank, String userAccount, Boolean alarmSetting, String messageSample) {
         ContentValues values = new ContentValues();
         values.put(UserBasicInfoDB.CreateDB.USERNAME, userName);
+        values.put(UserBasicInfoDB.CreateDB.USERBANK, userBank);
         values.put(UserBasicInfoDB.CreateDB.USERACCOUNT, userAccount);
         values.put(UserBasicInfoDB.CreateDB.ALARMSETTING, alarmSetting);
         values.put(UserBasicInfoDB.CreateDB.MESSAGESAMPLE, messageSample);
         return mDB.insert(UserBasicInfoDB.CreateDB._TABLENAME, null, values);
     }
 
-    public boolean updateColumnUserBasicInfo(String userName, String userAccount, Boolean alarmSetting, String messageSample) {
+    public boolean updateColumnUserBasicInfo(String userName, String userBank, String userAccount, Boolean alarmSetting, String messageSample) {
         ContentValues values = new ContentValues();
         values.put(UserBasicInfoDB.CreateDB.USERNAME, userName);
+        values.put(UserBasicInfoDB.CreateDB.USERBANK, userBank);
         values.put(UserBasicInfoDB.CreateDB.USERACCOUNT, userAccount);
         values.put(UserBasicInfoDB.CreateDB.ALARMSETTING, alarmSetting);
         values.put(UserBasicInfoDB.CreateDB.MESSAGESAMPLE, messageSample);
         return mDB.update(UserBasicInfoDB.CreateDB._TABLENAME, values, null, null) > 0;
+    }
+
+    public boolean updateUserInfo_Name(String newName){
+        ContentValues values = new ContentValues();
+        values.put(UserBasicInfoDB.CreateDB.USERNAME, newName);
+        return mDB.update(UserBasicInfoDB.CreateDB._TABLENAME,values,null,null)>0;
+    }
+
+    public boolean updateUserInfo_Bank(String newBank){
+        ContentValues values = new ContentValues();
+        values.put(UserBasicInfoDB.CreateDB.USERBANK, newBank);
+        return mDB.update(UserBasicInfoDB.CreateDB._TABLENAME,values,null,null)>0;
+    }
+    public boolean updateUserInfo_Account(String newAccount){
+        ContentValues values = new ContentValues();
+        values.put(UserBasicInfoDB.CreateDB.USERACCOUNT, newAccount);
+        return mDB.update(UserBasicInfoDB.CreateDB._TABLENAME,values,null,null)>0;
     }
 
     public void flushUserInfo(){
@@ -80,6 +99,9 @@ public class DbOpenHelper {
     }
 
 
+    public Cursor getAllColumnsUserInfo() {
+        return mDB.query(UserBasicInfoDB.CreateDB._TABLENAME, null, null, null, null, null, null);
+    }
 
 
 

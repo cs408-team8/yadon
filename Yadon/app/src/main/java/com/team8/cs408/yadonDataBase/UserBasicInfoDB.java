@@ -14,6 +14,7 @@ import android.provider.BaseColumns;
 public final class UserBasicInfoDB {
     public static final class CreateDB implements BaseColumns{
         public static final String USERNAME = "userName";
+        public static final String USERBANK = "userBank";
         public static final String USERACCOUNT = "userAccount";
         public static final String ALARMSETTING = "alarmSetting";
         public static final String MESSAGESAMPLE = "messageSample";
@@ -22,6 +23,7 @@ public final class UserBasicInfoDB {
                 "create table " + _TABLENAME + "("
                         + _ID + " Integer primary key autoincrement , "
                         + USERNAME + " text not null , "
+                        + USERBANK + " text not null , "
                         + USERACCOUNT + " text not null , "
                         + ALARMSETTING + " boolean not null , "
                         + MESSAGESAMPLE + " text not null );";

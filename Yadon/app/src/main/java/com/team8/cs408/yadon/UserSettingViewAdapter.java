@@ -1,14 +1,18 @@
 package com.team8.cs408.yadon;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.team8.cs408.yadonDataBase.MyApplication;
 
 import java.util.ArrayList;
 
@@ -40,10 +44,20 @@ public class UserSettingViewAdapter extends BaseAdapter {
         TextView optionStatusView = (TextView) convertView.findViewById(R.id.item_optionstatus);
 
         UserSettingViewItem listViewItem = userSettingViewItem_List.get(position);
-
-        optionNameView.setText(listViewItem.getOptionName());
-        optionStatusView.setText(listViewItem.getOptionStatus());
-
+        Cursor mCursor = MyApplication.mDbOpenHelper.getAllColumnsUserInfo();
+        mCursor.moveToNext();
+        if(position==0) {
+            optionNameView.setText(listViewItem.getOptionName());
+            optionStatusView.setText(mCursor.getString(mCursor.getColumnIndex("userName")));
+        }
+        else if(position==1){
+            optionNameView.setText(listViewItem.getOptionName());
+            optionStatusView.setText(mCursor.getString(mCursor.getColumnIndex("userBank")));
+        }
+        else{
+            optionNameView.setText(listViewItem.getOptionName());
+            optionStatusView.setText(mCursor.getString(mCursor.getColumnIndex("userAccount")));
+        }
         return convertView;
     }
 
@@ -65,6 +79,9 @@ public class UserSettingViewAdapter extends BaseAdapter {
         item.setOptionStatus(optionStatus);
 
         userSettingViewItem_List.add(item);
+    }
+    public void changeItem(int position, String newVal){
+        userSettingViewItem_List.get(position).setOptionStatus(newVal);
     }
 
     public void clear(){

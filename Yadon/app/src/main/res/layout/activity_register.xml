@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:layout_width="118dp"
+        android:layout_height="412dp">
+
+        <TextView
+            android:text="이름"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="41dp"
+            android:id="@+id/regnametextView"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/regbanktextView"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"/>
+
+
+        <TextView
+            android:text="계좌번호"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/regbanktextView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="109dp"
+            android:id="@+id/regaccounttextView"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:text="주거래은행"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="117dp"
+            android:id="@+id/regbanktextView"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            android:layout_below="@+id/regnametextView"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="20dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="68dp">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:text="등록"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="36dp"
+            android:id="@+id/registbutton" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginTop="38dp"
+            android:id="@+id/regnameeditText"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:id="@+id/spinner"
+            android:layout_above="@+id/regaccounteditText"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/regaccounteditText"
+            android:layout_marginBottom="68dp"
+            android:layout_above="@+id/registbutton"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>
