@@ -159,6 +159,10 @@ public class DbOpenHelper {
                 "debtSetup ASC, collectionCompleted ASC, creationDate ASC, groupName ASC");
     }
 
+    public Cursor getAllColumsForAccountBook(){
+        return mDB.query(DataBases.CreateDB._TABLENAME,null,null,null,null,null,"creationDate ASC,groupName ASC, name ASC");
+    }
+
     public Cursor getGroupColumns(String groupName) {
         return mDB.query(DataBases.CreateDB._TABLENAME, null, "groupName=" + "'" + groupName + "'", null, null, null,
                 "debt DESC");

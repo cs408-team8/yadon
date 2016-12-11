@@ -102,15 +102,19 @@ public class AlarmMessageActivity extends AppCompatActivity {
         SmsManager mSmsManager = SmsManager.getDefault();
         Cursor cursor = MyApplication.mDbOpenHelper.getAllColumnsUserInfo();
         cursor.moveToNext();
-        String msg = groupName+" 모임을 계산한 " + cursor.getString(cursor.getColumnIndex("userName")) + "입니다. "+memberName+"님 " + cursor.getString(cursor.getColumnIndex("userBank")) + " " + cursor.getString(cursor.getColumnIndex("userAccount")) + "로 "+memberDebt+"원 입금 부탁드립니다. (이 메세지는 야 돈!에서 발송된 메시지입니다. 입금해주실 때까지 주기적으로 발송됩니다.)";
+        String msg = groupName+" 모임을 계산한 " + cursor.getString(cursor.getColumnIndex("userName")) + "입니다. "+memberName+"님 " + cursor.getString(cursor.getColumnIndex("userBank")) + " " + cursor.getString(cursor.getColumnIndex("userAccount")) + "로 "+memberDebt+"원 입금 바랍니다.";
         mSmsManager.sendTextMessage(memberPhone, null, msg,
                 sentIntent, deliveredIntent);
+        cursor.close();
+        unregisterReceiver(sentBroadcastReceiver);
+        unregisterReceiver(deliveredBroadcastReceiver);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        /*
         unregisterReceiver(sentBroadcastReceiver);
-        unregisterReceiver(deliveredBroadcastReceiver);
+        unregisterReceiver(deliveredBroadcastReceiver);*/
     }
 }

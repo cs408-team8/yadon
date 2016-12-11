@@ -50,44 +50,46 @@ public class SMSReceiver extends BroadcastReceiver {
                 while (st.hasMoreTokens()) {
                     lineList.add(st.nextToken().trim());
                 }
-                String date = lineList.get(1).split(" ")[0].substring(2);
-                receiveYear = receiveYear.concat(date);
-                String time = lineList.get(1).split(" ")[1];
-                String myAccount = lineList.get(2).split(" ")[0];
-                String senderName = lineList.get(2).split(" ")[1];
-                String moneyString = lineList.get(3).split(" ")[1];
-                moneyString = moneyString.substring(0, moneyString.length() - 1);
-                String[] moneyArrayBeforeConcat = moneyString.split(",");
-                moneyString = ""; // reuse..
-                for (int i = 0; i < moneyArrayBeforeConcat.length; i++) {
-                    moneyString += moneyArrayBeforeConcat[i];
-                }
-                int receivedMoney = Integer.parseInt(moneyString);
-                Log.d("therefore,, ", receiveYear + " " + time + " " + myAccount + " " + senderName + " " + receivedMoney);
+                if(lineList.get(0).equals("[Web발신]")){
+                    String date = lineList.get(1).split(" ")[0].substring(2);
+                    receiveYear = receiveYear.concat(date);
+                    String time = lineList.get(1).split(" ")[1];
+                    String myAccount = lineList.get(2).split(" ")[0];
+                    String senderName = lineList.get(2).split(" ")[1];
+                    String moneyString = lineList.get(3).split(" ")[1];
+                    moneyString = moneyString.substring(0, moneyString.length() - 1);
+                    String[] moneyArrayBeforeConcat = moneyString.split(",");
+                    moneyString = ""; // reuse..
+                    for (int i = 0; i < moneyArrayBeforeConcat.length; i++) {
+                        moneyString += moneyArrayBeforeConcat[i];
+                    }
+                    int receivedMoney = Integer.parseInt(moneyString);
+                    Log.d("therefore,, ", receiveYear + " " + time + " " + myAccount + " " + senderName + " " + receivedMoney);
 
-                //update to Database
-                mCursor = MyApplication.mDbOpenHelper.getAllColumns();
-                String tempGroupName = "";
-                int tempDebt = 0;
-                while (mCursor.moveToNext()) {
-                    if (receivedMoney == 0) {
-                        break;
-                    }
-                    if (senderName.equals(mCursor.getString(mCursor.getColumnIndex("name")))) {
-                        tempGroupName = mCursor.getString(mCursor.getColumnIndex("groupName"));
-                        tempDebt = mCursor.getInt(mCursor.getColumnIndex("debt"));
-                        if (receivedMoney > tempDebt) {
-                            MyApplication.mDbOpenHelper.updateTheColumn_debt(tempGroupName, senderName, 0);
-                            receivedMoney -= tempDebt;
-                        } else {
-                            MyApplication.mDbOpenHelper.updateTheColumn_debt(tempGroupName, senderName, tempDebt - receivedMoney);
-                            receivedMoney = 0;
+                    //update to Database
+                    mCursor = MyApplication.mDbOpenHelper.getAllColumns();
+                    String tempGroupName = "";
+                    int tempDebt = 0;
+                    while (mCursor.moveToNext()) {
+                        if (receivedMoney == 0) {
+                            break;
                         }
-                    } else {
+                        if (senderName.equals(mCursor.getString(mCursor.getColumnIndex("name")))) {
+                            tempGroupName = mCursor.getString(mCursor.getColumnIndex("groupName"));
+                            tempDebt = mCursor.getInt(mCursor.getColumnIndex("debt"));
+                            if (receivedMoney > tempDebt) {
+                                MyApplication.mDbOpenHelper.updateTheColumn_debt(tempGroupName, senderName, 0);
+                                receivedMoney -= tempDebt;
+                            } else {
+                                MyApplication.mDbOpenHelper.updateTheColumn_debt(tempGroupName, senderName, tempDebt - receivedMoney);
+                                receivedMoney = 0;
+                            }
+                        } else {
+                        }
                     }
+                    mCursor.close();
+                    updateDBGroupState();
                 }
-                mCursor.close();
-                updateDBGroupState();
             } catch (ArrayIndexOutOfBoundsException e) {
                 Log.e("SMSReceiver : ", "Wrong Format");
             }

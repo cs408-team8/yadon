@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -23,6 +24,8 @@ import android.widget.Toast;
 
 import com.team8.cs408.yadonDataBase.MyApplication;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 
@@ -179,7 +182,67 @@ public class HomeActivity extends AppCompatActivity {
                 finish();
                 return true;
             case 3:
+                String sdpath = Environment.getExternalStorageDirectory().getAbsolutePath();
+                File dir = new File(sdpath+"/Yadon");
+                dir.mkdir();
+                File file = new File(sdpath+"/Yadon/AccountBook_Yadon.csv");
+                try{
+                    FileOutputStream fos = new FileOutputStream(file);
+                    Cursor cursor = MyApplication.mDbOpenHelper.getAllColumsForAccountBook();
+                    int subtotal = 0;
+                    int total = 0;
+                    int subdebt = 0;
+                    int totaldebt = 0;
+                    String str = "그룹,날짜,입금자,금액,미수납액\n";
+                    fos.write(str.getBytes());
+                    String group = "";
+                    while(cursor.moveToNext()) {
+                        Log.d("In home activity, ", cursor.getString(cursor.getColumnIndex("groupName")));
+                        if(group.equals("")){
+                            str = cursor.getString(cursor.getColumnIndex("groupName"))+","+cursor.getString(cursor.getColumnIndex("creationDate"))+","+cursor.getString(cursor.getColumnIndex("name"))
+                                    +","+cursor.getString(cursor.getColumnIndex("initDebt"))+","+cursor.getString(cursor.getColumnIndex("debt"))+"\n";
+                            fos.write(str.getBytes());
+                            group=cursor.getString(cursor.getColumnIndex("groupName"));
+                            subdebt=cursor.getInt(cursor.getColumnIndex("debt"));
+                            subtotal=cursor.getInt(cursor.getColumnIndex("initDebt"));
+                        }else if(!group.equals(cursor.getString(cursor.getColumnIndex("groupName")))){
+                            total+=subtotal;
+                            totaldebt+=subdebt;
+                            str = ",,금액계,"+String.valueOf(subtotal)+",\n";
+                            fos.write(str.getBytes());
+                            str = ",,미수납액계,,"+String.valueOf(subdebt)+",\n";
+                            fos.write(str.getBytes());
+                            str = cursor.getString(cursor.getColumnIndex("groupName"))+","+cursor.getString(cursor.getColumnIndex("creationDate"))+","+cursor.getString(cursor.getColumnIndex("name"))
+                                    +","+cursor.getString(cursor.getColumnIndex("initDebt"))+","+cursor.getString(cursor.getColumnIndex("debt"))+"\n";
+                            fos.write(str.getBytes());
+                            group=cursor.getString(cursor.getColumnIndex("groupName"));
+                            subdebt=cursor.getInt(cursor.getColumnIndex("debt"));
+                            subtotal=cursor.getInt(cursor.getColumnIndex("initDebt"));
 
+                        }
+                        else{
+                            str = ",,"+cursor.getString(cursor.getColumnIndex("name"))+","+cursor.getString(cursor.getColumnIndex("initDebt"))+","+cursor.getString(cursor.getColumnIndex("debt"))+"\n";
+                            fos.write(str.getBytes());
+                            subdebt+=cursor.getInt(cursor.getColumnIndex("debt"));
+                            subtotal+=cursor.getInt(cursor.getColumnIndex("initDebt"));
+                        }
+
+                    }
+                    total+=subtotal;
+                    totaldebt+=subdebt;
+                    str = ",,금액계,"+String.valueOf(subtotal)+",\n";
+                    fos.write(str.getBytes());
+                    str = ",,미수납액계,,"+String.valueOf(subdebt)+",\n";
+                    fos.write(str.getBytes());
+                    str = ",,금액총계,"+String.valueOf(total)+",\n";
+                    fos.write(str.getBytes());
+                    str = ",,미수납액총계,,"+String.valueOf(totaldebt)+",\n";
+                    fos.write(str.getBytes());
+                    fos.close();
+                }
+                catch(Exception e){;}
+
+                Toast.makeText(this,"내파일/Yadon 폴더에 장부가 생성되었습니다.",Toast.LENGTH_SHORT).show();
                 return true;
         }
         return false;
@@ -192,13 +255,15 @@ public class HomeActivity extends AppCompatActivity {
      * <uses-permission android:name="android.permission.SEND_SMS" />
      * <uses-permission android:name="android.permission.RECEIVE_SMS" />
      * <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+     * <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
      */
     private void showContacts() {
         // Check the SDK version and whether the permission is already granted or not.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
                 && (checkSelfPermission(Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED
-                || checkSelfPermission(Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED)) {
-            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS, Manifest.permission.SEND_SMS},
+                || checkSelfPermission(Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED
+                || checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)) {
+            requestPermissions(new String[]{Manifest.permission.READ_CONTACTS, Manifest.permission.SEND_SMS, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     PERMISSIONS_REQUEST_READ_CONTACTS);
             //After this point you wait for callback in onRequestPermissionsResult(int, String[], int[]) overriden method
         } else {

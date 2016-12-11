@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,6 +19,7 @@ import com.team8.cs408.yadonDataBase.MyApplication;
 import com.team8.cs408.yadonReceiver.AlarmReceiver;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import static com.kakao.auth.StringSet.file;
 
@@ -28,7 +30,7 @@ public class AlarmActivity extends AppCompatActivity {
     Spinner periodAlarmSpinner;
     int alarmStart, alarmPeriod;
     private Cursor mCursor;
-    public ArrayList<AlarmManager> AlarmList;
+    public static ArrayList<AlarmManager> AlarmList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,13 +132,18 @@ public class AlarmActivity extends AppCompatActivity {
                     }
                 }
                 mCursor.close();
-                AlarmManager tempAlarmManager = (AlarmManager)v.getContext().getSystemService(Context.ALARM_SERVICE);
+
+                AlarmList.clear();
+                for (int i = 0; i < groupNameList.size(); i++) {
+                    AlarmList.add((AlarmManager)v.getContext().getSystemService(Context.ALARM_SERVICE));
+                }
                 for (int i = 0; i < groupNameList.size(); i++) {
                     mCursor = MyApplication.mDbOpenHelper.getGroupColumns(groupNameList.get(i));
+                    mCursor.moveToNext();
                     Intent alarmintent = new Intent(v.getContext(), AlarmReceiver.class);
-                    alarmintent.putExtra("file", file.toString());
+                    //alarmintent.putExtra("file", file.toString());
                     //intent.putExtra("groupName", groupName);
-                    PendingIntent pIntent = PendingIntent.getBroadcast(v.getContext(), file.hashCode(), alarmintent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    PendingIntent pIntent = PendingIntent.getBroadcast(v.getContext(), 0, alarmintent, PendingIntent.FLAG_UPDATE_CURRENT);
 
                     //Calendar cal = Calendar.getInstance();
                     //cal.set(Calendar.SECOND, cal.get(Calendar.SECOND) + 10); // 10초 뒤
@@ -144,13 +151,15 @@ public class AlarmActivity extends AppCompatActivity {
                     //long oneday = 24 * 60 * 60 * 1000;// 24시간
 
                     // 10초 뒤에 시작해서 매일 같은 시간에 반복하기
-                    /*
-                    tempAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
-                            mCursor.getInt(mCursor.getColumnIndex("alarmStart"))*60*1000,
-                            mCursor.getInt(mCursor.getColumnIndex("alarmPeriod"))*1000,
+                    Calendar calendar = Calendar.getInstance();
+                    Log.d("alarmPeriod : ", ""+mCursor.getInt(mCursor.getColumnIndex("alarmPeriod")));
+                    AlarmList.get(i).setRepeating(AlarmManager.RTC_WAKEUP,
+                            //mCursor.getInt(mCursor.getColumnIndex("alarmStart"))*60*100,
+                            calendar.getTimeInMillis(),
+                            mCursor.getInt(mCursor.getColumnIndex("alarmPeriod"))*10,
                             pIntent);
                     mCursor.close();
-                    */
+
                 }
 
                 startActivity(intent);
