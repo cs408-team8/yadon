@@ -51,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 else {
                     MyApplication.mDbOpenHelper.insertColumnUserBasicInfo(
-                            regname.getText().toString(), bank, regaccount.getText().toString(), Boolean.TRUE, "(그룹이름) 모임을 계산한 " + regname.getText().toString() + "입니다. " + bank + " " + regaccount.getText().toString() + "로 (청구금액)원 입금 부탁드립니다. (이 메세지는 야 돈!에서 발송된 메시지입니다. 입금해주실 때까지 주기적으로 발송됩니다."
+                            regname.getText().toString(), bank, regaccount.getText().toString(), Boolean.TRUE, "(그룹이름) 모임을 계산한 " + regname.getText().toString() + "입니다. (사람이름)님 " + bank + " " + regaccount.getText().toString() + "로 (청구금액)원 입금 부탁드립니다. (이 메세지는 야 돈!에서 발송된 메시지입니다. 입금해주실 때까지 주기적으로 발송됩니다.)"
 
                     );
                     Intent intent= new Intent(RegisterActivity.this,HomeActivity.class);

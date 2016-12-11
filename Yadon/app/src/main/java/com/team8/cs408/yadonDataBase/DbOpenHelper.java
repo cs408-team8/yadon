@@ -89,6 +89,11 @@ public class DbOpenHelper {
         return mDB.update(UserBasicInfoDB.CreateDB._TABLENAME,values,null,null)>0;
     }
 
+    public boolean updateUserInfo_SampleMessage(String newMessage){
+        ContentValues values = new ContentValues();
+        values.put(UserBasicInfoDB.CreateDB.MESSAGESAMPLE,newMessage);
+        return mDB.update(UserBasicInfoDB.CreateDB._TABLENAME,values,null,null)>0;
+    }
     public void flushUserInfo(){
         mDB.delete(UserBasicInfoDB.CreateDB._TABLENAME, null, null);
     }

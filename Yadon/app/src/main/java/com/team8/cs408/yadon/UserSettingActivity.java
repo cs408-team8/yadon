@@ -62,9 +62,12 @@ public class UserSettingActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int whichButton) {
                             String value = input.getText().toString();
                             // Do something with value!
-                            MyApplication.mDbOpenHelper.updateUserInfo_Name(value.toString());
-                            adapter.changeItem(0,value.toString());
-                            updateUserSettingListView();
+                            if(value.toString().length()>0) {
+                                MyApplication.mDbOpenHelper.updateUserInfo_Name(value.toString());
+                                MyApplication.mDbOpenHelper.updateUserInfo_SampleMessage("(그룹이름) 모임을 계산한 " + mCursor.getString(mCursor.getColumnIndex("userName")) + "입니다. (사람이름)님 " + mCursor.getString(mCursor.getColumnIndex("userBank")) + " " + mCursor.getString(mCursor.getColumnIndex("userAccount")) + "로 (청구금액)원 입금 부탁드립니다. (이 메세지는 야 돈!에서 발송된 메시지입니다. 입금해주실 때까지 주기적으로 발송됩니다.)");
+                                adapter.changeItem(0, value.toString());
+                                updateUserSettingListView();
+                            }
                         }
                     });
 
@@ -84,6 +87,7 @@ public class UserSettingActivity extends AppCompatActivity {
                     alert.setSingleChoiceItems(banks,-1,new DialogInterface.OnClickListener(){
                         public void onClick(DialogInterface dialog, int item){
                             MyApplication.mDbOpenHelper.updateUserInfo_Bank(banks[item].toString());
+                            MyApplication.mDbOpenHelper.updateUserInfo_SampleMessage("(그룹이름) 모임을 계산한 " + mCursor.getString(mCursor.getColumnIndex("userName")) + "입니다. (사람이름)님 " + mCursor.getString(mCursor.getColumnIndex("userBank")) + " " + mCursor.getString(mCursor.getColumnIndex("userAccount")) + "로 (청구금액)원 입금 부탁드립니다. (이 메세지는 야 돈!에서 발송된 메시지입니다. 입금해주실 때까지 주기적으로 발송됩니다.)");
                             adapter.changeItem(1,banks[item].toString());
                             updateUserSettingListView();
                             dialog.cancel();
@@ -105,9 +109,12 @@ public class UserSettingActivity extends AppCompatActivity {
                     alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
                             String value = input.getText().toString();
-                            MyApplication.mDbOpenHelper.updateUserInfo_Account(value.toString());
-                            adapter.changeItem(2,value.toString());
-                            updateUserSettingListView();
+                            if(value.toString().length()>0) {
+                                MyApplication.mDbOpenHelper.updateUserInfo_Account(value.toString());
+                                MyApplication.mDbOpenHelper.updateUserInfo_SampleMessage("(그룹이름) 모임을 계산한 " + mCursor.getString(mCursor.getColumnIndex("userName")) + "입니다. (사람이름)님 " + mCursor.getString(mCursor.getColumnIndex("userBank")) + " " + mCursor.getString(mCursor.getColumnIndex("userAccount")) + "로 (청구금액)원 입금 부탁드립니다. (이 메세지는 야 돈!에서 발송된 메시지입니다. 입금해주실 때까지 주기적으로 발송됩니다.)");
+                                adapter.changeItem(2, value.toString());
+                                updateUserSettingListView();
+                            }
                         }
                     });
 

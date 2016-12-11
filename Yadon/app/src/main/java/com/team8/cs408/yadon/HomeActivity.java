@@ -179,6 +179,7 @@ public class HomeActivity extends AppCompatActivity {
                 finish();
                 return true;
             case 3:
+
                 return true;
         }
         return false;
