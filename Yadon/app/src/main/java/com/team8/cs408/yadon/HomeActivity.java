@@ -1,6 +1,8 @@
 package com.team8.cs408.yadon;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -14,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -155,6 +158,8 @@ public class HomeActivity extends AppCompatActivity {
 
         menu.add(0, 2, 2, "설정");
 
+        menu.add(0,3,3,"장부엑셀파일생성");
+
 
         return true;
     }
@@ -163,10 +168,12 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case 1:
-                Toast.makeText(this, item.getTitle() + " selected", Toast.LENGTH_SHORT).show();
+                Cursor mCursor = MyApplication.mDbOpenHelper.getAllColumnsUserInfo();
+                mCursor.moveToNext();
+
+                Toast.makeText(this, "이름"+mCursor.getString(mCursor.getColumnIndex("userName"))+"\n은행"+mCursor.getString(mCursor.getColumnIndex("userBank"))+"\n계좌번호"+mCursor.getString(mCursor.getColumnIndex("userAccount"))+"\n문자예시\n"+mCursor.getString(mCursor.getColumnIndex("messageSample")), Toast.LENGTH_LONG).show();
                 return true;
             case 2:
-                Toast.makeText(this, item.getTitle() + " selected", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(HomeActivity.this, UserSettingActivity.class);
                 startActivity(intent);
                 finish();

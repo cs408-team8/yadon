@@ -32,6 +32,8 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
             </intent-filter>
         </receiver>
+        <activity android:name=".RegisterActivity"></activity>
+        <receiver android:name="com.team8.cs408.yadonReceiver.AlarmReceiver"></receiver>
 
     </application>
 
